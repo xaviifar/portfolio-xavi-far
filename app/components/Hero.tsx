@@ -53,10 +53,13 @@ export default function Hero() {
           <span className="mx-2 inline-flex h-[1.1rem] items-center align-middle sm:mx-3 lg:mx-4">
             <img className="h-18" src="/icons/dev.svg" alt="" />
           </span>
-          <span className="inline-block align-middle">Backend Dev</span>
+          <span className="inline-block align-middle">Big Data</span>
+          <br />
+          <span className="inline-block align-middle">& Backend Dev</span>
+
         </h1>
 
-        <div className="nav mt-64 flex items-center gap-3 rounded-[1.9rem] border border-black/10 bg-white/5 px-4 py-3 shadow-[0_8px_18px_rgba(0,0,0,0.05)] backdrop-blur-sm">
+        <div className="nav mt-30 flex items-center gap-3 rounded-[1.9rem] border border-black/10 bg-white/5 px-4 py-3 shadow-[0_8px_18px_rgba(0,0,0,0.05)] backdrop-blur-sm">
           {socials.map((social, index) => (
             <div key={social.label} className="group relative flex items-center justify-center">
               <span className="pointer-events-none absolute -top-14 left-1/2 -translate-x-1/2 rounded-full bg-[#161616] px-2.5 py-1 text-[0.8rem] font-medium tracking-[0.04em] text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
