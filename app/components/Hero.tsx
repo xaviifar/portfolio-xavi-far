@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const socials = [
-  { label: "Experiencia", src: "/icons/experiencia.svg", background: "bg-[#f7d24d]" },
+  { label: "Experiencia", src: "/icons/exp.svg", background: "bg-[#f7d24d]" },
   { label: "Proyectos", src: "/icons/projects.svg", background: "bg-[#f4f4f4]" },
-  { label: "GitHub", src: "/icons/github.webp", background: "bg-[#0b0b0b]" },
   { label: "IA", src: "/icons/chat.svg", background: "bg-[#f7d24d]" },
+  { label: "GitHub", src: "/icons/github.webp", background: "bg-[#0b0b0b]" },
 
   { label: "LinkedIn", src: "/icons/linkedin.svg", background: "bg-[#eaf2ff]" },
   { label: "Correo", src: "/icons/mail.svg", background: "bg-[#f6f6f6]" },
