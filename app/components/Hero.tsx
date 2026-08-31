@@ -48,9 +48,9 @@ export default function Hero() {
                     </p>
                 </div>
 
-                <h1 className="max-w-[980px] text-center text-[4.25rem] font-medium leading-[0.9] tracking-[-0.09em] text-[#171717] sm:text-[3.2rem] lg:text-[4.25rem]">
+                <h1 className="max-w-[980px] text-center text-[2.25rem] font-medium leading-[0.9] tracking-[-0.09em] text-[#171717] sm:text-[3.2rem] lg:text-[4.25rem]">
                     <span className="inline-block align-middle">AI Engineer</span>
-                    <span className="mx-2 inline-flex h-[1.1rem] items-center align-middle sm:mx-3 lg:mx-4">
+                    <span className="mx-2 inline-flex h-[0.7rem] items-center align-middle sm:mx-3 lg:mx-4">
                         <img className="h-18" src="/icons/dev.svg" alt="" />
                     </span>
                     <span className="inline-block align-middle">Big Data</span>
@@ -59,15 +59,15 @@ export default function Hero() {
 
                 </h1>
                 <nav className="nav mt-20">
-                    <ul className="flex list-none gap-1 p-0 m-0 items-center">
+                    <ul className="grid grid-cols-3 md:flex list-none gap-1 p-0 m-0 items-center">
                         {socials.map((social, index) => {
                             const item = (
-                                <li key={social.label} className="app group relative flex items-center justify-center">
+                                <li key={social.label} className="app group relative flex flex-col md:flex-row items-center justify-center">
                                     <a
                                         href={social.href || "#"}
                                         target={social.target}
                                         rel={social.target === "_blank" ? "noreferrer noopener" : undefined}
-                                        className="flex h-16 w-16 items-center justify-center overflow-hidden"
+                                        className="flex h-16 w-16 md:h-16 md:w-16 sm:h-20 sm:w-20 items-center justify-center overflow-hidden"
                                         aria-label={social.label}
                                         title={social.label}
                                     >
@@ -76,10 +76,10 @@ export default function Hero() {
                                             alt={social.label}
                                             width={44}
                                             height={44}
-                                            className="h-14 w-14 object-contain"
+                                            className="h-14 w-14 md:h-14 md:w-14 sm:h-16 sm:w-16 object-contain"
                                         />
                                     </a>
-                                    <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#161616] px-2.5 py-1 text-[0.8rem] font-medium tracking-[0.04em] text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                                    <span className="pointer-events-none md:absolute md:-top-10 md:left-1/2 md:-translate-x-1/2 md:whitespace-nowrap md:rounded-full md:bg-[#161616] md:px-2.5 md:py-1 md:text-[0.8rem] md:text-white md:opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-200 mt-1 md:mt-0 text-[0.65rem] text-[#161616] md:text-white text-center block">
                                         {social.label}
                                     </span>
                                 </li>
@@ -89,7 +89,7 @@ export default function Hero() {
                                 return (
                                     <>
                                         {item}
-                                        <li key={`divider-${index}`} aria-hidden="true" className="mx-2 h-12 w-px bg-black/25" />
+                                        <li key={`divider-${index}`} aria-hidden="true" className="hidden md:block mx-2 h-12 w-px bg-black/25" />
                                     </>
                                 );
                             }
