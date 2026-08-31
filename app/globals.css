@@ -26,6 +26,7 @@
                         color-mix(in srgb, var(--glass-dark) calc(var(--glass-reflex-dark) * 16%), transparent), 0 12px 28px 0 
                         color-mix(in srgb, var(--glass-dark) calc(var(--glass-reflex-dark) * 10%), transparent);
 }
+
 * {
     box-sizing: border-box;
 }
@@ -64,6 +65,46 @@ body {
     --case-logo-height: 80px;
     --case-summary-width: 560px;
     --case-gallery-radius: 10px;
+}
+.app {
+  flex-shrink: 0;
+  transition: width, height, margin-top, cubic-bezier(0.25, 1, 0.5, 1) 100ms;
+}
+.app:hover{
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+}
+/* .app:hover + .app{
+  width: 50px;
+  height: 50px; 
+  margin-top: -20px;
+}
+
+.app:hover + .app + .app {
+  width: 50px;
+  height: 50px; 
+  margin-top: -10px;
+}
+.app:has(+.app:hover){
+  width: 50px;
+  height: 50px; 
+  margin-top: -20px;
+}
+
+.app:has(+.app +.app:hover){
+  width: 50px;
+  height: 50px; 
+  margin-top: -10px;
+} */
+
+/* Dock styles to prevent bounce */
+nav[className*="mt-20"] {
+  transition: none !important;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @theme inline {
