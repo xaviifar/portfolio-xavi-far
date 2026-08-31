@@ -25,7 +25,12 @@
   --case-summary-width: 560px;
   --case-gallery-radius: 10px;
 }
-
+@font-face {
+  font-family: "DM Sans";
+  src: url('../public/fonts/DMSans-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
 /* ===== Global Styles ===== */
 * {
   box-sizing: border-box;
@@ -36,6 +41,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
 }
 
 body {
@@ -105,8 +111,8 @@ li {
 /* ===== Responsive Styles ===== */
 @media (max-width: 768px) {
   .nav {
-    display: inline-grid;
-    padding: 20px;
+    display: inline-flex;
+    padding: 0;
     background-color: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -114,12 +120,7 @@ li {
     border: none;
   }
 
-  .nav ul {
-    gap: 24px !important;
-  }
-
   .app {
-    flex-direction: column;
     transition: none;
     width: auto !important;
     height: auto !important;
@@ -131,14 +132,15 @@ li {
     margin-top: 0 !important;
   }
 
-  .app a {
-    width: auto !important;
-    height: auto !important;
+  .app:last-child {
+    grid-column: 2;
+    justify-self: center;
   }
 
   .app span {
     margin-top: 8px;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
     display: block;
     text-align: center;
   }

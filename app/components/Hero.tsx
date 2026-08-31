@@ -17,14 +17,14 @@ const socials = [
 ];
 
 const socials_m = [
+    { label: "Linkedin", src: "/icons/linkedin.svg", href: "https://www.linkedin.com/in/xavi-far/", target: "_blank" },
+    { label: "Correo", src: "/icons/mail.svg", href: "mailto:xavi@example.com" },
+    { label: "CV", src: "/icons/cv.svg", href: "/cv" },
     { label: "Experiencia", src: "/icons/exp.svg", href: "#experience" },
     { label: "Proyectos", src: "/icons/projects.svg", href: "/projects" },
     { label: "GitHub", src: "/icons/github.svg", href: "https://github.com/xaviifar", target: "_blank" },
     { label: "IA", src: "/icons/claude.svg", href: "#ai" },
-    { label: "Linkedin", src: "/icons/linkedin.svg", href: "https://www.linkedin.com/in/xavi-far/", target: "_blank" },
-    { label: "Correo", src: "/icons/mail.svg", href: "mailto:xavi@example.com" },
-    { label: "CV", src: "/icons/cv.svg", href: "/cv" },
-]
+];
 
 export default function Hero() {
     return (
@@ -43,7 +43,7 @@ export default function Hero() {
 
             <div className="flex min-h-screen flex-col items-center justify-center pt-4">
                 <div className="mb-4 flex flex-col items-center">
-                    <div className="relative mb-4 h-36 w-38 sm_w-36 overflow-hidden rounded-full border border-black/10 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)]">
+                    <div className="relative mb-4 h-28 w-28 sm_w-36 overflow-hidden rounded-full border border-black/10 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)]">
                         <Image
                             src="/portfolio.jpg"
                             alt="Xavi Far"
@@ -68,16 +68,16 @@ export default function Hero() {
                     <span className="inline-block align-middle">& Backend Dev</span>
 
                 </h1>
-                <nav className="nav mt-12 sm:mt-20">
-                    <ul className="grid grid-cols-3 md:flex list-none gap-1.5 p-0 m-0 items-center">
+                <nav className="nav mt-16 sm:mt-20">
+                    <ul className="hidden md:flex list-none gap-1 p-0 m-0 items-center">
                         {socials.map((social, index) => {
                             const item = (
-                                <li key={social.label} className="app group relative flex flex-col md:flex-row items-center justify-center">
+                                <li key={social.label} className="app group relative flex flex-row items-center justify-center">
                                     <a
                                         href={social.href || "#"}
                                         target={social.target}
                                         rel={social.target === "_blank" ? "noreferrer noopener" : undefined}
-                                        className="flex h-16 w-16 md:h-16 md:w-16 items-center justify-center overflow-hidden"
+                                        className="flex h-16 w-16 items-center justify-center overflow-hidden"
                                         aria-label={social.label}
                                         title={social.label}
                                     >
@@ -86,10 +86,10 @@ export default function Hero() {
                                             alt={social.label}
                                             width={44}
                                             height={44}
-                                            className="h-20 w-20 md:h-14 md:w-14 object-contain"
+                                            className="h-14 w-14 object-contain"
                                         />
                                     </a>
-                                    <span className="pointer-events-none md:absolute md:-top-10 md:left-1/2 md:-translate-x-1/2 md:whitespace-nowrap md:rounded-full md:bg-[#161616] md:px-2.5 md:py-1 md:text-[0.8rem] md:text-white md:opacity-0 md:group-hover:opacity-100 md:transition-opacity md:duration-200 mt-1 md:mt-0 text-[1rem] text-[#161616] md:text-white text-center block">
+                                    <span className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#161616] px-2.5 py-1 text-[0.8rem] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                                         {social.label}
                                     </span>
                                 </li>
@@ -99,13 +99,39 @@ export default function Hero() {
                                 return (
                                     <>
                                         {item}
-                                        <li key={`divider-${index}`} aria-hidden="true" className="hidden md:block mx-2 h-12 w-px bg-black/25" />
+                                        <li key={`divider-${index}`} aria-hidden="true" className="mx-2 h-12 w-px bg-black/25" />
                                     </>
                                 );
                             }
 
                             return item;
                         })}
+                    </ul>
+
+                    <ul className="grid grid-cols-3 md:hidden list-none gap-4 p-0 m-0 items-center">
+                        {socials_m.map((social, index) => (
+                            <li key={social.label} className={`app group relative flex flex-col items-center justify-center ${index === 6 ? 'col-span-1' : ''}`}>
+                                <a
+                                    href={social.href || "#"}
+                                    target={social.target}
+                                    rel={social.target === "_blank" ? "noreferrer noopener" : undefined}
+                                    className="flex h-20 w-20 items-center justify-center overflow-hidden"
+                                    aria-label={social.label}
+                                    title={social.label}
+                                >
+                                    <Image
+                                        src={social.src}
+                                        alt={social.label}
+                                        width={44}
+                                        height={44}
+                                        className="h-16 w-16 object-contain"
+                                    />
+                                </a>
+                                <span className="mt-2 text-[0.8rem] font-medium text-[#161616] text-center block pointer-events-none w-full truncate">
+                                    {social.label}
+                                </span>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
             </div>
