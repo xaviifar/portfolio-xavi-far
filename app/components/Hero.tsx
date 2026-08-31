@@ -13,13 +13,13 @@ const socials = [
     { label: "IA", src: "/icons/claude.svg", href: "#ai" },
     { label: "Linkedin", src: "/icons/linkedin.svg", href: "https://www.linkedin.com/in/xavi-far/", target: "_blank" },
     { label: "Correo", src: "/icons/mail.svg", href: "mailto:xavi@example.com" },
-    { label: "CV", src: "/icons/cv.svg", href: "/cv" },
+    { label: "Descargar CV", src: "/icons/cv.svg", href: "/cv" },
 ];
 
 const socials_m = [
     { label: "Linkedin", src: "/icons/linkedin.svg", href: "https://www.linkedin.com/in/xavi-far/", target: "_blank" },
     { label: "Correo", src: "/icons/mail.svg", href: "mailto:xavi@example.com" },
-    { label: "CV", src: "/icons/cv.svg", href: "/cv" },
+    { label: "Descargar CV", src: "/icons/cv.svg", href: "/cv" },
     { label: "Experiencia", src: "/icons/exp.svg", href: "/experience" },
     { label: "Proyectos", src: "/icons/projects.svg", href: "/projects" },
     { label: "GitHub", src: "/icons/github.svg", href: "https://github.com/xaviifar", target: "_blank" },
