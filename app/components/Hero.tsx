@@ -9,7 +9,7 @@ interface ActionLink {
 
 const actionLinks: ActionLink[] = [
   {
-    name: "Resume",
+    name: "Access Full Resume",
     href: "/cv.pdf",
     primary: true,
     icon: (
@@ -32,7 +32,7 @@ const actionLinks: ActionLink[] = [
     ),
   },
   {
-    name: "Contact",
+    name: "Initialize Comms",
     href: "mailto:tuemail@dominio.com",
     primary: true,
     icon: (
@@ -108,27 +108,27 @@ export default function Hero() {
         </h1>
 
         {/* Value Proposition */}
-        <div className="mt-6 max-w-[540px] space-y-3.5 text-[15px] leading-[1.65] tracking-[-0.02em] text-[#161616]/70 sm:text-[16px]">
+        <div className="mt-6 max-w-[560px] space-y-3.5 text-[15px] leading-[1.65] tracking-[-0.02em] text-[#161616]/70 sm:text-[16px]">
           <p>
-            I am a Backend &amp; AI Engineer specialized in transforming complex data into scalable, intelligent software.
+            I am a Backend &amp; AI Engineer specialized in transforming complex data into scalable, intelligent software systems.
           </p>
           <p>
-            I don&apos;t just build AI wrappers. I design architecture, deploy{" "}
+            I don&apos;t just build AI wrappers. I design backend architectures, deploy{" "}
             <strong className="font-medium text-[#161616]">RAG pipelines</strong>, and develop{" "}
             <strong className="font-medium text-[#161616]">autonomous agents</strong> that solve actual business problems.
           </p>
         </div>
 
-        {/* Action Grid (Primary / Secondary Button Bar) */}
+        {/* Action Grid (Primary / Secondary Button Bar with Strict Minimalist Styling) */}
         <div className="mt-9">
-          <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 max-w-[580px]">
+          <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 max-w-[620px]">
             {actionLinks.map((link) => (
               <li key={link.name} className="flex min-w-0">
                 <a
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-md border px-3 py-2 text-[13px] font-medium leading-4 whitespace-nowrap outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#161616]/50 ${
+                  className={`inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-md border px-3 py-2.5 text-[13px] font-medium leading-4 whitespace-nowrap outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#161616]/50 ${
                     link.primary
                       ? "border-[#161616] bg-[#161616] text-[#f3f3f1] hover:bg-transparent hover:text-[#161616]"
                       : "border-[#161616]/10 bg-[#161616]/5 text-[#161616] hover:bg-[#161616] hover:text-[#f3f3f1] hover:border-[#161616]"

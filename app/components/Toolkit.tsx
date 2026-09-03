@@ -6,19 +6,19 @@ const toolkit = [
     skills: [
       "LangChain / LlamaIndex",
       "OpenAI / Anthropic APIs",
-      "Pinecone / Weaviate",
+      "Pinecone / Weaviate / Qdrant",
       "RAG Architectures",
-      "Prompt Engineering",
+      "Prompt Engineering & Fine-tuning",
     ],
   },
   {
     category: "Backend & Data",
     skills: [
       "Python (FastAPI, Flask)",
-      "PostgreSQL / MongoDB",
-      "Apache Kafka",
-      "Redis",
+      "PostgreSQL / MongoDB / Redis",
+      "Apache Kafka / Spark",
       "Data Pipelines (ETL)",
+      "Microservices & Event-driven API",
     ],
   },
   {
@@ -27,8 +27,8 @@ const toolkit = [
       "AWS (EC2, S3, Lambda)",
       "Docker & Kubernetes",
       "CI/CD (GitHub Actions)",
-      "Terraform",
-      "Linux / Bash",
+      "Terraform & IaC",
+      "Linux Kernel / Bash Automation",
     ],
   },
 ];
@@ -36,15 +36,15 @@ const toolkit = [
 export default function Toolkit() {
   return (
     <section className="pt-10 pb-12">
-      <SectionHeader title="Core Toolkit" />
+      <SectionHeader index="04" title="Core Toolkit" />
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
         {toolkit.map((block) => (
           <div key={block.category} className="flex flex-col">
-            <h3 className="mb-3 font-mono text-[11px] uppercase tracking-wider text-[#161616]/50">
+            <h3 className="mb-3 font-mono text-[11px] uppercase tracking-wider text-[#161616]/50 font-medium">
               {block.category}
             </h3>
-            <ul className="flex flex-col gap-2 border-l border-[#161616]/10 pl-3.5">
+            <ul className="flex flex-col gap-2 border-l border-[#161616]/10 pl-3.5 mt-1">
               {block.skills.map((skill) => (
                 <li
                   key={skill}

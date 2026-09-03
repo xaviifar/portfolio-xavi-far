@@ -83,8 +83,8 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
   return (
     <div className="group flex items-start gap-4 sm:gap-5 border-b border-[#161616]/10 pb-6 last:border-0 last:pb-0">
       {/* Company Icon / Logo Container */}
-      <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10 transition-transform duration-300 group-hover:scale-105">
-        <span className="opacity-70 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0">
+      <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white/60 border border-[#161616]/10 transition-transform duration-300 group-hover:scale-105">
+        <span className="flex items-center justify-center opacity-80">
           {exp.logo}
         </span>
       </div>
@@ -110,7 +110,7 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
           {exp.shortDescription}
         </p>
 
-        {/* Accordion / Details */}
+        {/* Progressive Disclosure Accordion */}
         <div
           className={`grid transition-all duration-300 ease-in-out ${
             isExpanded ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0 mt-0"
@@ -149,7 +149,7 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
 export default function Experience() {
   return (
     <section id="experience" className="pt-10 pb-12">
-      <SectionHeader title="Experience" />
+      <SectionHeader index="02" title="Experience" />
 
       <div className="flex flex-col gap-6">
         {experiences.map((exp) => (
@@ -162,9 +162,9 @@ export default function Experience() {
           href="/cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 rounded-md border border-[#161616] bg-[#161616] px-4 py-2.5 text-[13px] font-medium text-[#f3f3f1] transition-all hover:bg-transparent hover:text-[#161616]"
+          className="group inline-flex items-center gap-2 rounded-md border border-[#161616] bg-[#161616] px-4 py-2.5 text-[13px] font-medium text-[#f3f3f1] transition-all duration-200 hover:bg-transparent hover:text-[#161616]"
         >
-          <span>Download full resume</span>
+          <span>Access Full Resume</span>
           <span className="transition-transform duration-200 group-hover:translate-x-1">
             →
           </span>

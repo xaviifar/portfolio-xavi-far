@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Header from "@/app/components/Header";
 import SectionHeader from "@/app/components/SectionHeader";
+import Footer from "@/app/components/Footer";
 
 interface Message {
   id: number;
@@ -22,7 +23,7 @@ const initialMessages: Message[] = [
   {
     id: 2,
     role: "ai",
-    text: "Hi there. I'm Xavi's digital twin. I'm trained specifically on his engineering background, architectures, and philosophy. What would you like to know about him?",
+    text: "Hi there. I'm Xavi's digital twin. I'm trained specifically on his backend engineering background, autonomous agents, and RAG architectures. What would you like to query?",
     timestamp: "Xavi AI — 10:22 AM",
   },
 ];
@@ -66,7 +67,7 @@ export default function ChatPage() {
         {
           id: Date.now() + 1,
           role: "ai",
-          text: "I'm currently a UI demo. Once Xavi connects my backend to a RAG pipeline or an OpenAI endpoint, I'll be able to answer queries about his experience with Python, autonomous agents, and scalable architectures.",
+          text: "I'm currently a UI demo connected to frontend state. Once Xavi deploys my backend RAG pipeline (FastAPI + Vector DB), I'll stream real-time responses about his engineering projects, Python benchmarks, and deployment logs.",
           timestamp: `Xavi AI — ${new Date().toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
@@ -79,28 +80,19 @@ export default function ChatPage() {
   return (
     <main className="min-h-screen bg-[#f3f3f1] text-[#161616]">
       {/* Master Container ("Hoja de Papel" blueprint effect) */}
-      <div className="mx-auto flex h-screen w-full max-w-[840px] flex-col border-[#161616]/10 px-6 sm:border-x sm:px-12 md:px-16">
+      <div className="mx-auto flex min-h-screen w-full max-w-[840px] flex-col border-[#161616]/10 px-6 sm:border-x sm:px-12 md:px-16">
         <Header />
 
         {/* Chat Title */}
-        <div className="pt-6 pb-4">
-          <div className="flex items-center gap-2.5 mb-2">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#161616]/50">
-              Agent Online
-            </span>
-          </div>
-          <SectionHeader title="Ask my AI" className="mb-2 sm:mb-2" />
+        <div className="pt-8 pb-4">
+          <SectionHeader index="AI" title="Ask AI (Digital Twin)" className="mb-2 sm:mb-2" />
           <p className="text-[14px] leading-[1.6] text-[#161616]/60">
-            Trained on codebase, resume, and project architecture.
+            Interactive AI interface trained on codebase architecture, experience logs, and tech stack parameters.
           </p>
         </div>
 
         {/* Messages Container */}
-        <div className="flex-1 overflow-y-auto py-6 scroll-smooth pr-1">
+        <div className="flex-1 py-6">
           <div className="flex flex-col gap-6">
             {messages.map((msg) => (
               <div
@@ -119,7 +111,7 @@ export default function ChatPage() {
 
                 {msg.role === "ai" && (
                   <div className="flex max-w-[85%] gap-3.5 sm:max-w-[75%]">
-                    <div className="mt-1 relative h-7 w-7 shrink-0 overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10">
+                    <div className="mt-1 relative h-7 w-7 shrink-0 overflow-hidden rounded-md bg-white/60 border border-[#161616]/10">
                       <Image
                         src="/portfolio.jpg"
                         alt="AI Avatar"
@@ -131,7 +123,7 @@ export default function ChatPage() {
                       <span className="font-mono text-[10px] text-[#161616]/40">
                         {msg.timestamp}
                       </span>
-                      <div className="text-[14px] leading-[1.6] text-[#161616]/80">
+                      <div className="text-[14px] leading-[1.6] text-[#161616]">
                         {msg.text}
                       </div>
                     </div>
@@ -154,7 +146,7 @@ export default function ChatPage() {
             {isTyping && (
               <div className="flex justify-start">
                 <div className="flex max-w-[85%] gap-3.5">
-                  <div className="mt-1 relative h-7 w-7 shrink-0 overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10">
+                  <div className="mt-1 relative h-7 w-7 shrink-0 overflow-hidden rounded-md bg-white/60 border border-[#161616]/10">
                     <Image
                       src="/portfolio.jpg"
                       alt="AI Avatar"
@@ -164,15 +156,15 @@ export default function ChatPage() {
                   </div>
                   <div className="flex items-center gap-1.5 pt-2">
                     <div
-                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#161616]/40"
+                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#161616]/30"
                       style={{ animationDelay: "0ms" }}
                     />
                     <div
-                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#161616]/40"
+                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#161616]/30"
                       style={{ animationDelay: "150ms" }}
                     />
                     <div
-                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#161616]/40"
+                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#161616]/30"
                       style={{ animationDelay: "300ms" }}
                     />
                   </div>
@@ -185,16 +177,16 @@ export default function ChatPage() {
         </div>
 
         {/* Input Bar */}
-        <div className="border-t border-[#161616]/10 py-4 pb-6">
+        <div className="border-t border-[#161616]/10 py-4 pb-8">
           <form
             onSubmit={handleSend}
-            className="relative flex items-center w-full rounded-md border border-[#161616]/15 bg-[#161616]/5 transition-colors focus-within:border-[#161616]/40 focus-within:bg-white"
+            className="relative flex items-center w-full rounded-md border border-[#161616]/15 bg-white/60 transition-colors focus-within:border-[#161616]/40 focus-within:bg-white"
           >
             <input
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Ask about my RAG experience..."
+              placeholder="Ask about my RAG experience or Python architecture..."
               className="w-full bg-transparent px-4 py-3 text-[14px] text-[#161616] placeholder:text-[#161616]/40 outline-none"
               autoComplete="off"
             />
@@ -229,6 +221,8 @@ export default function ChatPage() {
             </span>
           </div>
         </div>
+
+        <Footer />
       </div>
     </main>
   );

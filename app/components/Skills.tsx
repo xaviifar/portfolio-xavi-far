@@ -48,16 +48,16 @@ const focusAreas = [
   "LLMs",
   "Fine-tuning",
   "Local Models",
-  "RAG",
-  "AI Agents",
+  "RAG Pipelines",
+  "Autonomous Agents",
 ];
 
 function ToolChip({ label, icon: Icon, color }: Tool) {
   return (
-    <li className="group inline-flex items-center gap-2 rounded-md border border-[#161616]/10 bg-[#161616]/5 px-2.5 py-1 text-[12px] font-medium text-[#161616]/70 transition-colors duration-200 hover:bg-[#161616]/10 hover:text-[#161616]">
+    <li className="group inline-flex items-center gap-2 rounded-md border border-[#161616]/10 bg-white/60 px-2.5 py-1.5 text-[12px] font-medium text-[#161616] transition-all duration-200 hover:border-[#161616]/30">
       {Icon && (
         <Icon
-          className="h-3.5 w-3.5 shrink-0 opacity-70 grayscale transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0"
+          className="h-3.5 w-3.5 shrink-0 transition-transform duration-200 group-hover:scale-110"
           style={{ color }}
           aria-hidden="true"
         />
@@ -70,14 +70,14 @@ function ToolChip({ label, icon: Icon, color }: Tool) {
 export default function Skills() {
   return (
     <section id="skills" className="pt-10 pb-12">
-      <SectionHeader title="Skills & Focus Areas" />
+      <SectionHeader index="03" title="Technical Stack &amp; Focus" />
 
       <p className="max-w-xl text-[14.5px] leading-[1.65] text-[#161616]/70">
         Tools I build with day-to-day, and core focus areas in AI engineering and data architecture.
       </p>
 
       <div className="mt-6">
-        <h3 className="text-[12px] font-medium uppercase tracking-[0.05em] text-[#161616]/40">
+        <h3 className="text-[11px] font-mono font-medium uppercase tracking-[0.08em] text-[#161616]/40">
           Tools &amp; Technologies
         </h3>
         <ul className="mt-3 flex flex-wrap gap-2 p-0">
@@ -88,7 +88,7 @@ export default function Skills() {
       </div>
 
       <div className="mt-6">
-        <h3 className="text-[12px] font-medium uppercase tracking-[0.05em] text-[#161616]/40">
+        <h3 className="text-[11px] font-mono font-medium uppercase tracking-[0.08em] text-[#161616]/40">
           Core Focus Areas
         </h3>
         <ul className="mt-3 flex flex-wrap gap-2 p-0">
