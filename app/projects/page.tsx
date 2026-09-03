@@ -1,211 +1,232 @@
 import Image from "next/image";
+import Header from "@/app/components/Header";
+import SectionHeader from "@/app/components/SectionHeader";
+import Footer from "@/app/components/Footer";
 
-// Header Navigation (Misma que en la Home)
-const navItems = [
-  { label: "Me", href: "/", shortcut: "M" },
-  { label: "Experience", href: "/#experience", shortcut: "E" },
-  { label: "Work", href: "/projects", shortcut: "W", active: true }, // Work está activo aquí
-];
+interface ProjectDetail {
+  id: string;
+  title: string;
+  subtitle: string;
+  link: string;
+  image: string;
+  problem: string;
+  architecture: string;
+  built: string;
+  technologies: { name: string; icon?: React.ReactNode }[];
+  result: string;
+}
 
-// Array de todos tus proyectos detallados
-const allProjects = [
+const allProjects: ProjectDetail[] = [
   {
     id: "01",
     title: "AI Agent Platform",
-    subtitle: "Autonomous multi-agent system",
-    link: "/projects/ai-agent", // O link a GitHub
-    image: "/portfolio.jpg", // Cambiar por imagen real
-    problem: "Legacy systems couldn't scale manual data extraction and decision-making processes in real-time.",
-    architecture: "Event-driven microservices communicating via message brokers with a central LLM orchestrator.",
-    built: "Engineered the core routing logic, integrated RAG pipelines for contextual memory, and deployed to AWS.",
-    technologies: ["Python", "LangChain", "FastAPI", "PostgreSQL", "Docker"],
-    result: "Reduced processing time by 85% and successfully automated 10,000+ weekly tasks."
+    subtitle: "Autonomous multi-agent orchestration system",
+    link: "https://github.com/xaviifar",
+    image: "/portfolio.jpg",
+    problem:
+      "Legacy workflow systems failed to automate complex data extraction and multi-step reasoning in real time, causing manual backlogs.",
+    architecture:
+      "Event-driven microservices architecture communicating via Redis message brokers with a central LangChain LLM orchestrator and FastAPI runtime.",
+    built:
+      "Engineered deterministic routing loops, integrated Pinecone vector memory for dynamic context recall, and containerized deployment with Docker.",
+    technologies: [
+      {
+        name: "Python",
+        icon: (
+          <svg viewBox="0 0 128 128" width="12" height="12">
+            <path fill="#3776AB" d="M64 5.92c-29.34 0-28.32 12.72-28.32 12.72l.06 13.07h28.76v4.1H32.44S14.28 34.6 14.28 62.77c0 28.16 16.03 29.56 16.03 29.56l10.3.06v-14.7s-.2-16.12 16.3-16.12h17.93s15.34-.33 15.34-14.97V30.27s1.3-24.35-26.18-24.35zm-14.53 8.35a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8z" />
+            <path fill="#FFD43B" d="M64 121.73c29.34 0 28.32-12.72 28.32-12.72l-.06-13.07H63.5v-4.1h32.06s18.16 1.22 18.16-26.96c0-28.16-16.03-29.56-16.03-29.56l-10.3-.06v14.7s.2 16.13-16.3 16.13H53.15s-15.35.33-15.35 14.96v16.32s-1.3 24.36 26.2 24.36zm14.53-8.36a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8z" />
+          </svg>
+        ),
+      },
+      {
+        name: "LangChain",
+        icon: (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#1C1C1C" />
+            <path d="M2 17L12 22L22 17" stroke="#1C1C1C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M2 12L12 17L22 12" stroke="#1C1C1C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        ),
+      },
+      {
+        name: "FastAPI",
+        icon: (
+          <svg viewBox="0 0 128 128" width="12" height="12">
+            <path fill="#009688" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0z" />
+            <path fill="#FFF" d="M64 16.8L37.1 61h22.6v50.2L86.9 67H64.3V16.8z" />
+          </svg>
+        ),
+      },
+      { name: "PostgreSQL" },
+      { name: "Docker" },
+    ],
+    result:
+      "Reduced processing time by 85% and successfully automated over 10,000 weekly recurring tasks with high validation accuracy.",
   },
   {
     id: "02",
     title: "RAG Analytics Engine",
-    subtitle: "Enterprise semantic search",
-    link: "/projects/rag-engine",
+    subtitle: "Enterprise semantic search & knowledge retrieval",
+    link: "https://github.com/xaviifar",
     image: "/portfolio.jpg",
-    problem: "Employees spent an average of 2 hours daily searching for specific compliance clauses across thousands of messy PDFs.",
-    architecture: "Vector database cluster coupled with a Next.js frontend and an ingestion pipeline for asynchronous document processing.",
-    built: "Designed the document chunking strategy, embedded the vectors using OpenAI models, and built the conversational UI.",
-    technologies: ["Vector DB", "Next.js", "OpenAI API", "AWS S3", "Tailwind CSS"],
-    result: "Achieved 96% retrieval accuracy and cut document search time down to seconds for a team of 50+ analysts."
+    problem:
+      "Technical teams spent over 2 hours daily searching for specific architectural clauses and compliance standards across thousands of PDFs.",
+    architecture:
+      "Vector database cluster coupled with an asynchronous ingestion pipeline for document parsing, semantic chunking, and embedding generation.",
+    built:
+      "Designed sliding-window chunking algorithms, integrated hybrid BM25 + dense vector ranking, and built conversational query streams.",
+    technologies: [
+      {
+        name: "Vector DB",
+        icon: (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+            <path d="M4 4H20V8H4V4Z" fill="#F56565" />
+            <path d="M4 10H20V14H4V10Z" fill="#4299E1" />
+            <path d="M4 16H20V20H4V16Z" fill="#48BB78" />
+          </svg>
+        ),
+      },
+      {
+        name: "Next.js",
+        icon: (
+          <svg viewBox="0 0 128 128" width="12" height="12" fill="none">
+            <path fill="#000" d="M64 128c35.346 0 64-28.654 64-64S99.346 0 64 0 0 28.654 0 64s28.654 64 64 64z" />
+            <path fill="#fff" d="M102.663 94.757l-43.04-63.535h-9.52v64.673h8.318V45.249l37.079 56.402a63.593 63.593 0 0 0 7.163-6.894z" />
+            <path fill="#fff" d="M96.096 42.668h-8.318V85.33h8.318V42.668z" />
+          </svg>
+        ),
+      },
+      {
+        name: "OpenAI API",
+        icon: (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+            <path
+              fill="#10A37F"
+              d="M22.28 9.82a8.82 8.82 0 0 0-.58-3.9 8.76 8.76 0 0 0-3.32-4.04 8.79 8.79 0 0 0-4.64-1.2h-.14a8.77 8.77 0 0 0-6.9 2.9A8.8 8.8 0 0 0 1.72 9.81a8.75 8.75 0 0 0 .58 3.9 8.79 8.79 0 0 0 3.32 4.04 8.79 8.79 0 0 0 4.64 1.2h.14a8.77 8.77 0 0 0 6.9-2.9 8.76 8.76 0 0 0 4.98-6.23Z"
+            />
+            <path fill="#FFF" d="M13.25 10.66v2.68l-3.23 1.86v-3.73l3.23-1.87v-2.68L9 9.87v4.26l4.25-2.45v-1.02Z" />
+          </svg>
+        ),
+      },
+      { name: "AWS S3" },
+      { name: "Tailwind CSS" },
+    ],
+    result:
+      "Achieved 96% retrieval accuracy and cut document search time down to sub-second queries for active analyst teams.",
   },
-  // Puedes añadir más proyectos copiando este bloque...
 ];
 
 export default function ProjectsPage() {
   return (
-    <main className="relative min-h-screen bg-[#f3f3f1] text-[#161616] selection:bg-[#161616] selection:text-[#f3f3f1] font-sans">
-      
-      {/* Fondo de puntos (Dotted Grid) para mantener consistencia con la Home */}
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(#161616_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.04] pointer-events-none"></div>
+    <main className="min-h-screen bg-[#f3f3f1] text-[#161616]">
+      {/* Master Container ("Hoja de Papel" blueprint effect) */}
+      <div className="mx-auto flex min-h-screen w-full max-w-[840px] flex-col border-[#161616]/10 px-6 sm:border-x sm:px-12 md:px-16">
+        <Header />
 
-      {/* Header flotante (Glassmorphism) */}
-      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-5 pt-6 pointer-events-none">
-        <header className="pointer-events-auto flex w-full max-w-[840px] items-center justify-between rounded-full border border-[#161616]/10 bg-[#f3f3f1]/70 px-6 py-3 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
-          <a href="/" className="text-[14px] font-semibold tracking-[-0.04em] transition-opacity hover:opacity-70">
-            Xavi Far.
-          </a>
-          <nav className="flex items-center gap-4 text-[13px] tracking-[-0.035em] sm:gap-6">
-            {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="group flex items-center gap-1.5">
-                <span className={item.active ? "font-medium text-[#161616]" : "text-[#161616]/50 transition-colors duration-300 group-hover:text-[#161616]"}>
-                  {item.label}
-                </span>
-                <span className="hidden rounded-md bg-[#161616]/5 px-1.5 py-0.5 text-[9px] font-bold tracking-widest text-[#161616]/40 sm:inline-block">
-                  {item.shortcut}
-                </span>
-              </a>
-            ))}
-          </nav>
-        </header>
-      </div>
-
-      {/* CONTENEDOR PRINCIPAL: Mismos bordes laterales de la Home */}
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[840px] flex-col border-[#161616]/10 px-5 sm:border-x sm:px-12 md:px-16 pt-32 pb-24">
-        
-        {/* Cabecera de la Página */}
-        <div className="mb-16 sm:mb-24 flex flex-col pt-8">
-          <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-medium leading-[1.05] tracking-[-0.05em]">
-            Archive.
-          </h1>
-          <p className="mt-4 max-w-[500px] text-[15px] leading-[1.6] tracking-[-0.01em] text-[#161616]/70">
-            A comprehensive list of systems, APIs, and AI agents I've engineered. Focused on scalable architectures and real-world impact.
-          </p>
+        {/* Page Header */}
+        <div className="pt-10 pb-4">
+          <SectionHeader
+            index="INDEX // 01"
+            title="Projects & Architecture Archive"
+            subtitle="A comprehensive record of backend architectures, AI agent systems, and data pipelines built for production environments."
+          />
         </div>
 
-        {/* Lista de Proyectos Detallados */}
-        <div className="flex flex-col gap-24 sm:gap-32">
+        {/* Project Technical Blueprints */}
+        <div className="flex flex-col gap-16 sm:gap-20 pb-16">
           {allProjects.map((project) => (
             <article key={project.id} className="group flex flex-col gap-6">
-              
-              {/* Header del Proyecto */}
-              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                <div>
-                  <div className="mb-3 font-mono text-[11px] font-medium tracking-widest text-[#161616]/40">
+              {/* Project Title & Status */}
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 border-b border-[#161616]/10 pb-4">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[11px] text-[#161616]/40">
                     {project.id}
-                  </div>
-                  <h3 className="text-[clamp(1.5rem,4vw,2.2rem)] font-medium leading-[1.05] tracking-[-0.04em]">
+                  </span>
+                  <h3 className="text-[20px] sm:text-[24px] font-medium tracking-tight text-[#161616]">
                     {project.title}
                   </h3>
-                  <p className="mt-2 text-[15px] tracking-[-0.02em] text-[#161616]/60">
-                    {project.subtitle}
-                  </p>
                 </div>
-                
-                {/* CTA Desktop */}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden items-center gap-2 text-[13px] font-medium tracking-[-0.02em] transition-colors hover:text-[#161616]/60 sm:flex"
-                >
-                  Explore project 
-                  <span className="transition-transform group-hover:translate-x-1">→</span>
-                </a>
+                <span className="text-[13px] text-[#161616]/60 font-mono">
+                  {project.subtitle}
+                </span>
               </div>
 
-              {/* VISUAL GRANDE */}
-              <a 
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative block aspect-[16/9] w-full overflow-hidden rounded-md bg-[#161616]/5"
-              >
+              {/* Panoramic Media Box */}
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-white/60 ring-1 ring-inset ring-[#161616]/10 sm:aspect-[21/9]">
                 <Image
-                  src={project.image} 
+                  src={project.image}
                   alt={project.title}
                   fill
                   sizes="(max-width: 840px) 100vw, 840px"
-                  className="object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  className="object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                 />
-                <div className="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-[#161616]/10"></div>
-              </a>
+              </div>
 
-              {/* METADATOS DEL PROYECTO (Tabla Editorial) */}
-              <div className="mt-4 flex flex-col">
-                
-                {/* Fila: Problem */}
-                <div className="grid grid-cols-[110px_1fr] border-t border-[#161616]/10 py-4 sm:grid-cols-[140px_1fr]">
-                  <span className="mt-0.5 text-[10px] uppercase tracking-[0.08em] text-[#161616]/40">
+              {/* Blueprint Metadata Table */}
+              <div className="flex flex-col border-t border-[#161616]/10">
+                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
+                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
                     Problem
                   </span>
-                  <span className="text-[13.5px] leading-[1.65] tracking-[-0.01em] text-[#161616]/80 sm:text-[14.5px]">
+                  <span className="text-[13.5px] leading-[1.65] text-[#161616]/80 sm:text-[14px]">
                     {project.problem}
                   </span>
                 </div>
 
-                {/* Fila: Architecture */}
-                <div className="grid grid-cols-[110px_1fr] border-t border-[#161616]/10 py-4 sm:grid-cols-[140px_1fr]">
-                  <span className="mt-0.5 text-[10px] uppercase tracking-[0.08em] text-[#161616]/40">
+                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
+                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
                     Architecture
                   </span>
-                  <span className="text-[13.5px] leading-[1.65] tracking-[-0.01em] text-[#161616]/80 sm:text-[14.5px]">
+                  <span className="text-[13.5px] leading-[1.65] text-[#161616]/80 sm:text-[14px]">
                     {project.architecture}
                   </span>
                 </div>
 
-                {/* Fila: What I built */}
-                <div className="grid grid-cols-[110px_1fr] border-t border-[#161616]/10 py-4 sm:grid-cols-[140px_1fr]">
-                  <span className="mt-0.5 text-[10px] uppercase tracking-[0.08em] text-[#161616]/40">
-                    What I built
+                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
+                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
+                    Engineering
                   </span>
-                  <span className="text-[13.5px] leading-[1.65] tracking-[-0.01em] text-[#161616]/80 sm:text-[14.5px]">
+                  <span className="text-[13.5px] leading-[1.65] text-[#161616]/80 sm:text-[14px]">
                     {project.built}
                   </span>
                 </div>
 
-                {/* Fila: Technologies */}
-                <div className="grid grid-cols-[110px_1fr] border-t border-[#161616]/10 py-4 sm:grid-cols-[140px_1fr]">
-                  <span className="mt-0.5 text-[10px] uppercase tracking-[0.08em] text-[#161616]/40">
-                    Technologies
+                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
+                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
+                    Stack
                   </span>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="rounded-sm bg-[#161616]/5 px-2 py-1 text-[11px] font-medium tracking-tight text-[#161616]/70">
-                        {tech}
+                    {project.technologies.map((t) => (
+                      <span
+                        key={t.name}
+                        className="inline-flex items-center gap-1.5 rounded-md bg-white/60 border border-[#161616]/10 px-2.5 py-1 text-[11px] font-medium text-[#161616]"
+                      >
+                        {t.icon && (
+                          <span className="flex items-center justify-center shrink-0">
+                            {t.icon}
+                          </span>
+                        )}
+                        {t.name}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Fila: Result */}
-                <div className="grid grid-cols-[110px_1fr] border-y border-[#161616]/10 py-4 sm:grid-cols-[140px_1fr]">
-                  <span className="mt-0.5 text-[10px] uppercase tracking-[0.08em] text-[#161616]/40">
+                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] py-3.5">
+                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
                     Result
                   </span>
-                  <span className="text-[13.5px] font-medium leading-[1.65] tracking-[-0.01em] text-[#161616] sm:text-[14.5px]">
+                  <span className="text-[13.5px] font-medium leading-[1.65] text-[#161616] sm:text-[14px]">
                     {project.result}
                   </span>
                 </div>
-
               </div>
-
-              {/* CTA Mobile */}
-              <div className="mt-2 sm:hidden">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#161616] px-4 py-3 text-[13px] font-medium text-[#f3f3f1] transition-colors hover:bg-transparent hover:text-[#161616] hover:ring-1 hover:ring-inset hover:ring-[#161616]"
-                >
-                  Explore project →
-                </a>
-              </div>
-
             </article>
           ))}
         </div>
-        
-        {/* Footer simple para cerrar la página */}
-        <div className="mt-32 border-t border-[#161616]/10 pt-8 flex justify-between items-center text-[12px] text-[#161616]/40 font-medium">
-          <span>© {new Date().getFullYear()} Xavi Far.</span>
-          <a href="#" className="hover:text-[#161616] transition-colors">Back to top ↑</a>
-        </div>
 
+        <Footer />
       </div>
     </main>
   );

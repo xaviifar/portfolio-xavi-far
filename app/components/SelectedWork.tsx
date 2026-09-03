@@ -119,15 +119,15 @@ const selectedProjects: Project[] = [
 
 export default function SelectedWork() {
   return (
-    <section id="work" className="pt-10 pb-12">
-      <SectionHeader index="01" title="Selected Work" />
+    <section id="work" className="pt-6 pb-8">
+      <SectionHeader title="Selected Work" kicker="Featured Architecture" />
 
-      <div className="flex flex-col gap-12 sm:gap-14">
+      <div className="flex flex-col gap-8 sm:gap-10">
         {selectedProjects.map((project) => (
           <Link
             key={project.id}
             href={project.link}
-            className="group flex flex-col gap-4"
+            className="group flex flex-col gap-3"
           >
             {/* Panoramic Media Card Container */}
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-white/60 ring-1 ring-inset ring-[#161616]/10 sm:aspect-[21/9]">
@@ -141,13 +141,13 @@ export default function SelectedWork() {
             </div>
 
             {/* Project Content */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="font-mono text-[11px] text-[#161616]/40">
                     {project.id}
                   </span>
-                  <h3 className="text-[18px] sm:text-[20px] font-medium tracking-tight text-[#161616] transition-colors">
+                  <h3 className="text-[17px] sm:text-[19px] font-medium tracking-tight text-[#161616] transition-colors">
                     {project.title}
                   </h3>
                 </div>
@@ -157,13 +157,13 @@ export default function SelectedWork() {
               </div>
 
               {/* Swiss alignment indentation */}
-              <div className="pl-7 sm:pl-8">
-                <p className="max-w-[540px] text-[14px] leading-[1.6] tracking-[-0.01em] text-[#161616]/70">
+              <div className="pl-6 sm:pl-7">
+                <p className="max-w-[540px] text-[13.5px] leading-[1.55] tracking-[-0.01em] text-[#161616]/70">
                   {project.description}
                 </p>
 
                 {/* Permanent Full-Color Tech Tags */}
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-2.5 flex flex-wrap gap-1.5">
                   {project.tech.map((t) => (
                     <span
                       key={t.name}
@@ -179,7 +179,7 @@ export default function SelectedWork() {
                   ))}
                 </div>
 
-                <div className="mt-3.5 flex items-center gap-1">
+                <div className="mt-2.5 flex items-center gap-1">
                   <span className="text-[12px] font-medium text-[#161616]/60 transition-colors group-hover:text-[#161616]">
                     Inspect technical blueprint
                   </span>
@@ -193,10 +193,10 @@ export default function SelectedWork() {
         ))}
       </div>
 
-      <div className="mt-10 sm:mt-12 flex justify-start">
+      <div className="mt-6 sm:mt-8 flex justify-start">
         <Link
           href="/projects"
-          className="group inline-flex items-center gap-2 rounded-md border border-[#161616] bg-[#161616] px-4 py-2.5 text-[13px] font-medium text-[#f3f3f1] transition-all duration-200 hover:bg-transparent hover:text-[#161616]"
+          className="group inline-flex items-center gap-2 rounded-md border border-[#161616] bg-[#161616] px-4 py-2 text-[12.5px] font-medium text-[#f3f3f1] transition-all duration-200 hover:bg-transparent hover:text-[#161616]"
         >
           <span>Explore full architecture</span>
           <span className="transition-transform duration-200 group-hover:translate-x-1">

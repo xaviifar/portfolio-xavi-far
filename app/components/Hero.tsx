@@ -85,22 +85,22 @@ const actionLinks: ActionLink[] = [
 
 export default function Hero() {
   return (
-    <section id="me" className="flex flex-col pt-12 pb-16 sm:pt-20 sm:pb-20">
+    <section id="me" className="flex flex-col pt-8 pb-8 sm:pt-12 sm:pb-10">
       <div className="flex flex-col">
         {/* Editorial Profile Avatar */}
-        <div className="group relative mb-6 h-[72px] w-[58px] overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10 sm:h-[80px] sm:w-[64px]">
+        <div className="group relative mb-5 h-[68px] w-[54px] overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10 sm:h-[76px] sm:w-[60px]">
           <Image
             src="/portfolio.jpg"
             alt="Xavi Far"
             fill
             priority
-            sizes="(max-width: 768px) 58px, 64px"
+            sizes="(max-width: 768px) 54px, 60px"
             className="object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
           />
         </div>
 
         {/* Headline */}
-        <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-medium leading-[1.08] tracking-[-0.05em] text-[#161616]">
+        <h1 className="text-[clamp(2.1rem,4.5vw,3.4rem)] font-medium leading-[1.08] tracking-[-0.05em] text-[#161616]">
           Hi, I&apos;m Xavi. <br className="hidden sm:block" />
           <span className="text-[#161616]/40">I engineer </span>
           AI systems <br className="hidden sm:block" />
@@ -108,27 +108,27 @@ export default function Hero() {
         </h1>
 
         {/* Value Proposition */}
-        <div className="mt-6 max-w-[560px] space-y-3.5 text-[15px] leading-[1.65] tracking-[-0.02em] text-[#161616]/70 sm:text-[16px]">
+        <div className="mt-4 max-w-[560px] space-y-2.5 text-[14.5px] leading-[1.6] tracking-[-0.02em] text-[#161616]/70 sm:text-[15.5px]">
           <p>
             I am a Backend &amp; AI Engineer specialized in transforming complex data into scalable, intelligent software systems.
           </p>
           <p>
-            I don&apos;t just build AI wrappers. I design backend architectures, deploy{" "}
+            I don&apos;t just build wrappers. I design backend architectures, deploy{" "}
             <strong className="font-medium text-[#161616]">RAG pipelines</strong>, and develop{" "}
             <strong className="font-medium text-[#161616]">autonomous agents</strong> that solve actual business problems.
           </p>
         </div>
 
-        {/* Action Grid (Primary / Secondary Button Bar with Strict Minimalist Styling) */}
-        <div className="mt-9">
-          <ul className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 max-w-[620px]">
+        {/* Action Grid */}
+        <div className="mt-6">
+          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4 max-w-[620px]">
             {actionLinks.map((link) => (
               <li key={link.name} className="flex min-w-0">
                 <a
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-md border px-3 py-2.5 text-[13px] font-medium leading-4 whitespace-nowrap outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#161616]/50 ${
+                  className={`inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-md border px-3 py-2 text-[12.5px] font-medium leading-4 whitespace-nowrap outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#161616]/50 ${
                     link.primary
                       ? "border-[#161616] bg-[#161616] text-[#f3f3f1] hover:bg-transparent hover:text-[#161616]"
                       : "border-[#161616]/10 bg-[#161616]/5 text-[#161616] hover:bg-[#161616] hover:text-[#f3f3f1] hover:border-[#161616]"
