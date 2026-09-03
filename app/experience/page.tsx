@@ -1,193 +1,172 @@
+import Image from "next/image";
+import Link from "next/link";
+import Header from "@/app/components/Header";
+import SectionHeader from "@/app/components/SectionHeader";
 import Skills from "@/app/components/Skills";
+import Footer from "@/app/components/Footer";
 
+export default function ExperiencePage() {
+  return (
+    <main className="min-h-screen bg-[#f3f3f1] text-[#161616]">
+      {/* Master Container (Paper Sheet Effect) */}
+      <div className="mx-auto flex min-h-screen w-full max-w-[840px] flex-col border-[#161616]/10 px-6 sm:border-x sm:px-12 md:px-16">
+        <Header />
 
-export default function Experience() {
-    return (
-      <div className="mt-10 mx-6 flex flex-col sm:mx-auto sm:w-xl sm:self-center">
-  
-        <a className="flex flex-row items-center w-fit" href="/">
-          <svg
-            className="w-4 h-4"
-            viewBox="-19.04 0 75.803 75.803"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="#161616"
+        <div className="pt-8 pb-12">
+          {/* Back link */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 font-mono text-[12px] text-[#161616]/50 transition-colors hover:text-[#161616] mb-8"
           >
-            <path
-              d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
-              transform="translate(-624.082 -383.588)"
-            />
-          </svg>
-          <span className="ml-2 text-sm underline underline-offset-2">Back</span>
-        </a>
-  
-        {/* Intro */}
-        <div className="mt-10">
-          <h1 className="text-2xl font-medium text-[#161616]">
-            Hi, I'm Xavi 👋
-          </h1>
-          <p className="mt-3 text-[15px] leading-6 text-[#161616]/70">
-            I'm a full-stack developer specialized in AI and Big Data,
-            focused on building intelligent systems, AI agents and
-            modern software products.
-          </p>
-          <p className="mt-3 text-[15px] leading-6 text-[#161616]/70">
-            I work across the stack — from backend architecture and data
-            pipelines to AI-powered applications.
-          </p>
-        </div>
-  
-        <div className="my-8 h-px w-full bg-[#161616]/10" />
-  
-        {/* Experience */}
-        <section>
-          <h2 className="text-xs font-medium tracking-wide text-[#161616]/45">
-            Experience
-          </h2>
-  
-          <ol className="mt-6 flex flex-col gap-10">
-            {/* ESDI Systems — grouped roles */}
-            <li className="flex gap-3">
-              <img
-                src="/img/esdi.webp"
-                alt="ESDI Systems"
-                className="h-9 w-9 shrink-0 rounded-lg bg-[#f3f3f1] object-contain p-1"
-              />
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                  <h3 className="text-[1.05rem] font-medium text-[#161616]">
-                    Full-stack Developer
-                  </h3>
-                  <span className="shrink-0 text-[13px] text-[#161616]/40">
-                    Jan 2026 — Aug 2026
-                  </span>
+            <span>←</span>
+            <span>Back to Home</span>
+          </Link>
+
+          {/* Intro */}
+          <div className="flex flex-col gap-3">
+            <h1 className="text-[clamp(1.8rem,4vw,2.8rem)] font-medium leading-tight tracking-[-0.05em] text-[#161616]">
+              Detailed Background &amp; Experience
+            </h1>
+            <p className="text-[15px] leading-[1.65] text-[#161616]/70 max-w-[620px]">
+              I&apos;m a full-stack developer specialized in AI and Big Data, focused on building intelligent systems, AI agents, and modern software products across the stack.
+            </p>
+          </div>
+
+          {/* Detailed Timeline Section */}
+          <section className="mt-12">
+            <SectionHeader title="Work History" />
+
+            <ol className="flex flex-col gap-8">
+              {/* ESDI Systems */}
+              <li className="group flex gap-4 sm:gap-5 border-b border-[#161616]/10 pb-8 last:border-0">
+                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10">
+                  <Image
+                    src="/img/esdi.webp"
+                    alt="ESDI Systems"
+                    fill
+                    className="object-contain p-1 grayscale transition-all duration-300 group-hover:scale-105 group-hover:grayscale-0"
+                  />
                 </div>
-                <p className="text-[13px] text-[#161616]/50">ESDI Systems</p>
-                <p className="mt-2 text-sm leading-6 text-[#161616]/70">
-                  [Describe qué construiste aquí: stack usado, tipo de sistemas
-                  o clientes, y un resultado concreto.]
-                </p>
-  
-                {/* Previous role, same company */}
-                <div className="mt-4 border-l-2 border-[#161616]/10 pl-3">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                    <h4 className="text-sm font-medium text-[#161616]/80">
-                      Python Developer
-                    </h4>
-                    <span className="shrink-0 text-[13px] text-[#161616]/40">
-                      Jan 2026 — Jun 2026
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                    <h3 className="text-[16px] font-medium text-[#161616]">
+                      Full-stack Developer
+                    </h3>
+                    <span className="font-mono text-[11px] text-[#161616]/40 mt-0.5 sm:mt-0">
+                      Jan 2026 — Aug 2026
                     </span>
                   </div>
-                  <p className="mt-1 text-sm leading-6 text-[#161616]/60">
-                    [Describe brevemente qué hacías en este rol previo, si
-                    aporta algo distinto al de arriba.]
+                  <p className="text-[13px] font-medium text-[#161616]/60">ESDI Systems</p>
+                  <p className="mt-2 text-[14px] leading-[1.6] text-[#161616]/70">
+                    Architected intelligent backend systems, AI workflows, and modern web interfaces using Next.js, Python, and cloud infrastructure.
+                  </p>
+
+                  {/* Internal role evolution */}
+                  <div className="mt-4 border-l-2 border-[#161616]/10 pl-3.5 flex flex-col gap-1">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                      <h4 className="text-[14px] font-medium text-[#161616]/80">
+                        Python Developer
+                      </h4>
+                      <span className="font-mono text-[11px] text-[#161616]/40">
+                        Jan 2026 — Jun 2026
+                      </span>
+                    </div>
+                    <p className="text-[13px] leading-[1.6] text-[#161616]/60">
+                      Engineered data pipelines, REST APIs, and automated processing scripts.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              {/* Fundació Pere Tarrés */}
+              <li className="group flex gap-4 sm:gap-5 border-b border-[#161616]/10 pb-8 last:border-0">
+                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10">
+                  <Image
+                    src="/img/pt.webp"
+                    alt="Fundació Pere Tarrés"
+                    fill
+                    className="object-contain p-1 grayscale transition-all duration-300 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                    <h3 className="text-[16px] font-medium text-[#161616]">
+                      Systems Technician
+                    </h3>
+                    <span className="font-mono text-[11px] text-[#161616]/40 mt-0.5 sm:mt-0">
+                      Dec 2023 — Jul 2024
+                    </span>
+                  </div>
+                  <p className="text-[13px] font-medium text-[#161616]/60">
+                    Fundació Pere Tarrés
+                  </p>
+                  <p className="mt-2 text-[14px] leading-[1.6] text-[#161616]/70">
+                    Managed infrastructure operation, system troubleshooting, network administration, and automated routine maintenance scripts.
                   </p>
                 </div>
-              </div>
-            </li>
-  
-            {/* Fundació Pere Tarrés */}
-            <li className="flex gap-3">
-              <img
-                src="/img/pt.webp"
-                alt="Fundació Pere Tarrés"
-                className="h-9 w-9 shrink-0 rounded-lg bg-[#f3f3f1] object-contain p-1"
-              />
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                  <h3 className="text-[1.05rem] font-medium text-[#161616]">
-                    Systems Technician
-                  </h3>
-                  <span className="shrink-0 text-[13px] text-[#161616]/40">
-                    Dec 2023 — Jul 2024
-                  </span>
-                </div>
-                <p className="text-[13px] text-[#161616]/50">Fundació Pere Tarrés</p>
-                <p className="mt-2 text-sm leading-6 text-[#161616]/70">
-                  [Describe qué hacías: soporte, infraestructura, automatización,
-                  etc., con algún detalle concreto.]
-                </p>
-              </div>
-            </li>
-          </ol>
-        </section>
-  
-        <div className="my-8 h-px w-full bg-[#161616]/10" />
-  
-        {/* Education */}
-        <section>
-          <h2 className="text-xs font-medium tracking-wide text-[#161616]/45">
-            Education
-          </h2>
-  
-          <ol className="mt-6 flex flex-col gap-10">
-            <li className="flex gap-3">
-              <img
-                src="/img/udl.jpg"
-                alt="Universitat de Lleida"
-                className="h-9 w-9 shrink-0 rounded-lg bg-[#f3f3f1] object-contain p-1"
-              />
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                  <h3 className="text-[1.05rem] font-medium text-[#161616]">
-                    BSc in Computer Engineering
-                  </h3>
-                  <span className="shrink-0 text-[13px] text-[#161616]/40">
-                    [Añadir fechas]
-                  </span>
-                </div>
-                <p className="text-[13px] text-[#161616]/50">Universitat de Lleida</p>
-              </div>
-            </li>
-  
-            <li className="flex gap-3">
-              <img
-                src="/img/monlau.jpg"
-                alt="Centre Estudis Monlau"
-                className="h-9 w-9 shrink-0 rounded-lg bg-[#f3f3f1] object-contain p-1"
-              />
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                  <h3 className="text-[1.05rem] font-medium text-[#161616]">
-                    MSc in Artificial Intelligence &amp; Big Data
-                  </h3>
-                  <span className="shrink-0 text-[13px] text-[#161616]/40">
-                    Sep 2025 — Jun 2026
-                  </span>
-                </div>
-                <p className="text-[13px] text-[#161616]/50">Centre Estudis Monlau</p>
-                <p className="mt-2 text-sm leading-6 text-[#161616]/70">
-                  [Menciona proyecto destacado o especialización dentro del máster,
-                  si aplica.]
-                </p>
-              </div>
-            </li>
-  
-            <li className="flex gap-3">
-              <img
-                src="/img/monlau.jpg"
-                alt="Centre Estudis Monlau"
-                className="h-9 w-9 shrink-0 rounded-lg bg-[#f3f3f1] object-contain p-1"
-              />
-              <div className="min-w-0 flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                  <h3 className="text-[1.05rem] font-medium text-[#161616]">
-                    Cross-platform Application Development
-                  </h3>
-                  <span className="shrink-0 text-[13px] text-[#161616]/40">
-                    Sep 2025 — Jun 2026
-                  </span>
-                </div>
-                <p className="text-[13px] text-[#161616]/50">Centre Estudis Monlau</p>
-                <p className="mt-2 text-sm leading-6 text-[#161616]/70">
-                  [Menciona proyecto destacado, si aplica.]
-                </p>
-              </div>
-            </li>
-          </ol>
+              </li>
+            </ol>
+          </section>
 
-          <Skills></Skills>
-        </section>
+          {/* Education Section */}
+          <section className="mt-12">
+            <SectionHeader title="Education" />
+
+            <ol className="flex flex-col gap-6">
+              <li className="group flex gap-4 sm:gap-5">
+                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10">
+                  <Image
+                    src="/img/udl.jpg"
+                    alt="Universitat de Lleida"
+                    fill
+                    className="object-contain p-1 grayscale transition-all duration-300 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                    <h3 className="text-[15px] font-medium text-[#161616]">
+                      BSc in Computer Engineering
+                    </h3>
+                    <span className="font-mono text-[11px] text-[#161616]/40 mt-0.5 sm:mt-0">
+                      Universitat de Lleida
+                    </span>
+                  </div>
+                  <p className="text-[13px] text-[#161616]/60">Software Engineering &amp; Data Systems</p>
+                </div>
+              </li>
+
+              <li className="group flex gap-4 sm:gap-5">
+                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md bg-[#161616]/5 ring-1 ring-inset ring-[#161616]/10">
+                  <Image
+                    src="/img/monlau.jpg"
+                    alt="Centre Estudis Monlau"
+                    fill
+                    className="object-contain p-1 grayscale transition-all duration-300 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                    <h3 className="text-[15px] font-medium text-[#161616]">
+                      MSc in Artificial Intelligence &amp; Big Data
+                    </h3>
+                    <span className="font-mono text-[11px] text-[#161616]/40 mt-0.5 sm:mt-0">
+                      Sep 2025 — Jun 2026
+                    </span>
+                  </div>
+                  <p className="text-[13px] text-[#161616]/60">Centre Estudis Monlau</p>
+                  <p className="mt-1.5 text-[13.5px] leading-[1.6] text-[#161616]/70">
+                    Advanced specialization in deep learning, neural networks, vector databases, and big data orchestration.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <Skills />
+        </div>
+
+        <Footer />
       </div>
-
-    );
-  }
+    </main>
+  );
+}

@@ -1,36 +1,20 @@
 @import "tailwindcss";
 
-/* ===== CSS Variables ===== */
+/* ===== Design System CSS Variables ===== */
 :root {
-  --background: #efefee;
-  --foreground: #171717;
-  --page-bg: #ececeb;
+  --background: #f3f3f1;
+  --foreground: #161616;
+  --page-bg: #f3f3f1;
   --page-fg: #161616;
-  --stack-accent: #4f8dff;
-  --muted: rgba(22, 22, 22, 0.54);
-  --page-top-glow: rgba(255, 255, 255, 0.72);
-  --glass-light: #ffffff;
-  --glass-dark: #000000;
-  --glass-tint: #bbbbbc;
-  --glass-reflex-dark: 1;
-  --glass-reflex-light: 1;
-  --glass-saturation: 150%;
-  --dock-size: 54px;
-  --dock-gap: 8px;
-  --dock-radius: 23.5%;
-  --case-content-width: min(1120px, calc(100vw - 72px));
-  --case-section-gap: 64px;
-  --case-media-gap: 12px;
-  --case-logo-height: 80px;
-  --case-summary-width: 560px;
-  --case-gallery-radius: 10px;
 }
-@font-face {
-  font-family: "DM Sans";
-  src: url('../public/fonts/DMSans-Regular.ttf');
-  font-weight: 400;
-  font-style: normal;
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
+
 /* ===== Global Styles ===== */
 * {
   box-sizing: border-box;
@@ -41,107 +25,19 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  font-family: "DM Sans", sans-serif;
+  background-color: #f3f3f1;
+  color: #161616;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: radial-gradient(circle at 50% 8%, var(--page-top-glow), rgba(255, 255, 255, 0) 34%), 
-              radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0) 28%), 
-              linear-gradient(180deg, #f4f4f3 0%, #efefee 36%, var(--page-bg) 100%);
-  color: var(--page-fg);
-  font-family: "DM Sans", "Helvetica Neue", "Arial Nova", sans-serif;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
+::selection {
+  background-color: #161616;
+  color: #f3f3f1;
 }
 
 li {
   list-style: none;
-}
-
-/* ===== Component Styles ===== */
-.nav {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  margin-inline: 0;
-  border-radius: 22px;
-  background-color: color-mix(in srgb, var(--glass-tint) 15%, rgba(255, 255, 255, 0.16));
-  backdrop-filter: blur(10px) url(#glass-switcher-filter) saturate(var(--glass-saturation));
-  -webkit-backdrop-filter: blur(10px) saturate(var(--glass-saturation));
-  box-shadow: inset 0 0 0 1px 
-              color-mix(in srgb, var(--glass-light) calc(var(--glass-reflex-light) * 12%), transparent), 
-              inset 1.6px 2.4px 0 -1.6px 
-              color-mix(in srgb, var(--glass-light) calc(var(--glass-reflex-light) * 82%), transparent), 
-              inset -1.4px -1.8px 0 -1.4px 
-              color-mix(in srgb, var(--glass-light) calc(var(--glass-reflex-light) * 66%), transparent), 
-              inset -2px -5px 1px -4px 
-              color-mix(in srgb, var(--glass-light) calc(var(--glass-reflex-light) * 42%), transparent), 
-              inset -0.4px -1px 4px 0 
-              color-mix(in srgb, var(--glass-dark) calc(var(--glass-reflex-dark) * 12%), transparent), 
-              inset 0 2px 3px -1px 
-              color-mix(in srgb, var(--glass-dark) calc(var(--glass-reflex-dark) * 16%), transparent), 
-              0 12px 28px 0 
-              color-mix(in srgb, var(--glass-dark) calc(var(--glass-reflex-dark) * 10%), transparent);
-  transition: none !important;
-}
-
-.app {
-  flex-shrink: 0;
-  transition: width 100ms cubic-bezier(0.25, 1, 0.5, 1), 
-              height 100ms cubic-bezier(0.25, 1, 0.5, 1), 
-              margin-top 100ms cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.app:hover {
-  width: 60px;
-  height: 60px;
-  margin-top: -30px;
-}
-
-/* ===== Theme Configuration ===== */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* ===== Responsive Styles ===== */
-@media (max-width: 768px) {
-  .nav {
-    display: inline-flex;
-    padding: 0;
-    background-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: none;
-    border: none;
-  }
-
-  .app {
-    transition: none;
-    width: auto !important;
-    height: auto !important;
-  }
-
-  .app:hover {
-    width: auto !important;
-    height: auto !important;
-    margin-top: 0 !important;
-  }
-
-  .app:last-child {
-    grid-column: 2;
-    justify-self: center;
-  }
-
-  .app span {
-    margin-top: 8px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    display: block;
-    text-align: center;
-  }
 }
