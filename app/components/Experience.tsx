@@ -49,9 +49,9 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="group flex items-start gap-3.5 sm:gap-4.5 border-b border-[#161616]/10 pb-5 last:border-0 last:pb-0">
+    <div className="group flex items-start gap-3.5 sm:gap-4 border-b border-[#161616]/10 pb-5 last:border-0 last:pb-0">
       {/* Real Company Logo Container */}
-      <div className="relative mt-0.5 h-9 w-9 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white/60 p-1">
+      <div className="relative mt-0.5 h-9 w-9 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white p-1">
         <Image
           src={exp.logoSrc}
           alt={exp.company}
@@ -64,7 +64,7 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
       <div className="flex flex-1 flex-col">
         {/* Role, Company, and Mono Date */}
         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
-          <h3 className="text-[14.5px] font-medium tracking-tight text-[#161616]">
+          <h3 className="text-[14px] font-medium tracking-tight text-[#161616]">
             {exp.role}
           </h3>
           <span className="font-mono text-[10.5px] text-[#161616]/40 mt-0.5 sm:mt-0">
@@ -77,14 +77,14 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
         </h4>
 
         {/* Short Summary */}
-        <p className="mt-1.5 text-[13px] leading-[1.55] tracking-[-0.01em] text-[#161616]/70">
+        <p className="mt-1 text-[13px] leading-[1.55] tracking-[-0.01em] text-[#161616]/70">
           {exp.shortDescription}
         </p>
 
         {/* Progressive Disclosure Accordion */}
         <div
           className={`grid transition-all duration-300 ease-in-out ${
-            isExpanded ? "grid-rows-[1fr] opacity-100 mt-2.5" : "grid-rows-[0fr] opacity-0 mt-0"
+            isExpanded ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0 mt-0"
           }`}
         >
           <div className="overflow-hidden">
@@ -105,9 +105,9 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
         {/* Progressive Disclosure Toggle Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-2.5 flex w-fit items-center gap-1.5 text-[10.5px] font-medium uppercase tracking-[0.05em] text-[#161616]/40 transition-colors hover:text-[#161616]"
+          className="mt-2 flex w-fit items-center gap-1.5 text-[10.5px] font-medium uppercase tracking-[0.06em] text-[#161616]/40 transition-colors hover:text-[#161616] cursor-pointer"
         >
-          <span className="w-2 font-mono text-[12px] leading-none">
+          <span className="w-2 font-mono text-[11px] leading-none">
             {isExpanded ? "−" : "+"}
           </span>
           {isExpanded ? "Hide details" : "View details"}
@@ -119,31 +119,50 @@ function ExperienceCard({ exp }: { exp: ExperienceItem }) {
 
 export default function Experience() {
   return (
-    <section id="experience" className="pt-6 pb-8">
-      <SectionHeader title="Work Experience" kicker="Professional Track Record" />
+    <section id="experience" className="relative py-7 sm:py-9 border-b border-[#161616]/10">
+      {/* Structural Corner Wireframe Markers */}
+      <span className="absolute -left-[5px] -top-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
+        +
+      </span>
+      <span className="absolute -right-[5px] -top-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
+        +
+      </span>
+      <span className="absolute -left-[5px] -bottom-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
+        +
+      </span>
+      <span className="absolute -right-[5px] -bottom-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
+        +
+      </span>
 
-      <div className="flex flex-col gap-5">
+      <SectionHeader
+        index="02"
+        kicker="Background & Track Record"
+        title="Professional Experience"
+        subtitle="Software engineering, AI system deployment, and infrastructure operations."
+      />
+
+      <div className="flex flex-col gap-4">
         {experiences.map((exp) => (
           <ExperienceCard key={exp.id} exp={exp} />
         ))}
       </div>
 
-      <div className="mt-6 sm:mt-8 flex items-center gap-4">
+      <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
         <a
           href="/cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-2 rounded-md border border-[#161616] bg-[#161616] px-4 py-2 text-[12.5px] font-medium text-[#f3f3f1] transition-all duration-200 hover:bg-transparent hover:text-[#161616]"
+          className="group inline-flex items-center gap-2 rounded-md border border-[#161616] bg-[#161616] px-3.5 py-2 text-[12px] font-medium text-[#f3f3f1] transition-all duration-200 hover:bg-[#161616]/90 shadow-2xs"
         >
-          <span>Access Full Resume</span>
-          <span className="transition-transform duration-200 group-hover:translate-x-1">
+          <span>Deploy Resume</span>
+          <span className="transition-transform duration-200 group-hover:translate-x-0.5">
             →
           </span>
         </a>
 
         <Link
           href="/experience"
-          className="text-[12.5px] font-medium text-[#161616]/60 underline underline-offset-4 hover:text-[#161616] transition-colors"
+          className="text-[12px] font-medium text-[#161616]/60 underline underline-offset-4 hover:text-[#161616] transition-colors"
         >
           View detailed log &amp; education
         </Link>

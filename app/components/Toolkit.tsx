@@ -1,192 +1,218 @@
 "use client";
 
+import React from "react";
 import type { IconType } from "react-icons";
+
 import {
   SiPython,
+  SiPytorch,
+  SiTensorflow,
+  SiKeras,
+  SiScikitlearn,
+  SiLangchain,
+  SiQdrant,
   SiFastapi,
+  SiDjango,
   SiPostgresql,
+  SiMysql,
   SiRedis,
   SiApachespark,
   SiDatabricks,
-  SiDocker,
-  SiKubernetes,
-  SiTerraform,
-  SiLinux,
-  SiQdrant,
-  SiLangchain,
-  SiPydantic,
-  SiCelery,
-  SiGithubactions,
   SiApachekafka,
-  // SiOpenai,
-  SiHuggingface,
-  SiOllama,
-  SiSqlalchemy,
+  SiApacheairflow,
   SiPandas,
   SiPolars,
-  SiApacheairflow,
+  SiDocker,
+  SiKubernetes,
+  SiLinux,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVite,
+  SiSupabase,
+  SiFirebase,
+  SiHuggingface,
+  SiOllama,
+  SiCelery,
+  SiGithubactions,
   SiDuckdb,
-  // SiAmazonwebservices,
-  SiNginx,
-  SiGrafana,
-  SiPrometheus,
+  SiSqlalchemy,
+  SiTerraform,
 } from "react-icons/si";
+
 import SectionHeader from "./SectionHeader";
 
-interface ToolItem {
+interface Skill {
   name: string;
-  icon?: IconType | (() => React.ReactNode);
-  iconColor?: string;
+  brandColor: string;
+  icon: IconType;
 }
 
-interface ToolCategory {
-  title: string;
-  index: string;
-  description: string;
-  tools: ToolItem[];
-}
+const capabilities = [
+  "AI Agents",
+  "RAG",
+  "LLM Engineering",
+  "Fine-tuning",
+  "Agent Orchestration",
+  "Tool Calling",
+  "Semantic Search",
+  "Reranking",
+  "Machine Learning",
+  "Deep Learning",
+  "Computer Vision",
+  "NLP",
+  "Data Engineering",
+  "Distributed Systems",
+];
 
-const toolkitCategories: ToolCategory[] = [
-  {
-    index: "01",
-    title: "AI & Cognitive Systems",
-    description: "Agent loops, vector retrieval, embeddings & deterministic guardrails",
-    tools: [
-      { name: "Python 3.12", icon: SiPython, iconColor: "#3776AB" },
-      { name: "LangGraph", icon: SiLangchain, iconColor: "#1C1C1C" },
-      { name: "LangChain", icon: SiLangchain, iconColor: "#1C1C1C" },
-      { name: "Qdrant", icon: SiQdrant, iconColor: "#DC382D" },
-      { name: "pgvector", icon: SiPostgresql, iconColor: "#4169E1" },
-      { name: "Pydantic", icon: SiPydantic, iconColor: "#E92063" },
-      // { name: "OpenAI API", icon: SiOpenai, iconColor: "#10A37F" },
-      { name: "Hugging Face", icon: SiHuggingface, iconColor: "#FFD21E" },
-      { name: "Ollama / vLLM", icon: SiOllama, iconColor: "#161616" },
-      {
-        name: "Hybrid RAG",
-        icon: () => (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="shrink-0">
-            <path d="M4 4H20V8H4V4Z" fill="#F56565" />
-            <path d="M4 10H20V14H4V10Z" fill="#4299E1" />
-            <path d="M4 16H20V20H4V16Z" fill="#48BB78" />
-          </svg>
-        ),
-      },
-    ],
-  },
-  {
-    index: "02",
-    title: "Backend & Data Engines",
-    description: "Distributed pipelines, high-throughput microservices, caching & OLAP",
-    tools: [
-      { name: "FastAPI", icon: SiFastapi, iconColor: "#009688" },
-      { name: "PostgreSQL", icon: SiPostgresql, iconColor: "#4169E1" },
-      { name: "Redis", icon: SiRedis, iconColor: "#DC382D" },
-      { name: "Apache Spark", icon: SiApachespark, iconColor: "#E25A1C" },
-      { name: "Databricks", icon: SiDatabricks, iconColor: "#FF3621" },
-      { name: "Apache Kafka", icon: SiApachekafka, iconColor: "#231F20" },
-      { name: "Apache Airflow", icon: SiApacheairflow, iconColor: "#017CEE" },
-      { name: "DuckDB", icon: SiDuckdb, iconColor: "#FFF000" },
-      { name: "Celery", icon: SiCelery, iconColor: "#378147" },
-      { name: "SQLAlchemy", icon: SiSqlalchemy, iconColor: "#D71F00" },
-      { name: "Polars / Pandas", icon: SiPolars, iconColor: "#CD792C" },
-    ],
-  },
-  {
-    index: "03",
-    title: "Cloud & Infrastructure",
-    description: "Containers, orchestrators, declarative IaC, monitoring & automated CI/CD",
-    tools: [
-      { name: "Docker", icon: SiDocker, iconColor: "#2496ED" },
-      { name: "Kubernetes", icon: SiKubernetes, iconColor: "#326CE5" },
-      { name: "Terraform", icon: SiTerraform, iconColor: "#844FBA" },
-      // { name: "AWS", icon: SiAmazonwebservices, iconColor: "#FF9900" },
-      { name: "GitHub Actions", icon: SiGithubactions, iconColor: "#2088FF" },
-      { name: "Linux / Bash", icon: SiLinux, iconColor: "#FCC624" },
-      { name: "Nginx", icon: SiNginx, iconColor: "#009639" },
-      { name: "Prometheus", icon: SiPrometheus, iconColor: "#E6522C" },
-      { name: "Grafana", icon: SiGrafana, iconColor: "#F46800" },
-    ],
-  },
+const skills: Skill[] = [
+  // AI & MACHINE LEARNING
+  { name: "Python", brandColor: "#3776AB", icon: SiPython },
+  { name: "PyTorch", brandColor: "#EE4C2C", icon: SiPytorch },
+  { name: "TensorFlow", brandColor: "#FF6F00", icon: SiTensorflow },
+  { name: "Keras", brandColor: "#D00000", icon: SiKeras },
+  { name: "scikit-learn", brandColor: "#F7931E", icon: SiScikitlearn },
+  { name: "LangChain", brandColor: "#1C1C1C", icon: SiLangchain },
+  { name: "LangGraph", brandColor: "#1C1C1C", icon: SiLangchain },
+  { name: "Hugging Face", brandColor: "#FFD21E", icon: SiHuggingface },
+  { name: "Ollama / vLLM", brandColor: "#000000", icon: SiOllama },
+  { name: "Qdrant", brandColor: "#DC244C", icon: SiQdrant },
+  { name: "pgvector", brandColor: "#4169E1", icon: SiPostgresql },
+
+  // DATA
+  { name: "Pandas", brandColor: "#150458", icon: SiPandas },
+  { name: "Polars", brandColor: "#CD792C", icon: SiPolars },
+  { name: "Apache Spark", brandColor: "#E25A1C", icon: SiApachespark },
+  { name: "PySpark", brandColor: "#E25A1C", icon: SiApachespark },
+  { name: "Databricks", brandColor: "#FF3621", icon: SiDatabricks },
+  { name: "Apache Kafka", brandColor: "#231F20", icon: SiApachekafka },
+  { name: "Apache Airflow", brandColor: "#017CEE", icon: SiApacheairflow },
+  { name: "DuckDB", brandColor: "#FFF000", icon: SiDuckdb },
+
+  // BACKEND & DATABASES
+  { name: "FastAPI", brandColor: "#009688", icon: SiFastapi },
+  { name: "Django", brandColor: "#092E20", icon: SiDjango },
+  { name: "Redis", brandColor: "#DC382D", icon: SiRedis },
+  { name: "PostgreSQL", brandColor: "#4169E1", icon: SiPostgresql },
+  { name: "MySQL", brandColor: "#4479A1", icon: SiMysql },
+  { name: "Celery", brandColor: "#378147", icon: SiCelery },
+  { name: "SQLAlchemy", brandColor: "#D71F00", icon: SiSqlalchemy },
+  { name: "Supabase", brandColor: "#3ECF8E", icon: SiSupabase },
+  { name: "Firebase", brandColor: "#FFCA28", icon: SiFirebase },
+
+  // INFRASTRUCTURE
+  { name: "Docker", brandColor: "#2496ED", icon: SiDocker },
+  { name: "Kubernetes", brandColor: "#326CE5", icon: SiKubernetes },
+  { name: "Terraform", brandColor: "#844FBA", icon: SiTerraform },
+  { name: "GitHub Actions", brandColor: "#2088FF", icon: SiGithubactions },
+  { name: "Linux / Bash", brandColor: "#FCC624", icon: SiLinux },
+
+  // FRONTEND
+  { name: "TypeScript", brandColor: "#3178C6", icon: SiTypescript },
+  { name: "React.js", brandColor: "#61DAFB", icon: SiReact },
+  { name: "Next.js", brandColor: "#000000", icon: SiNextdotjs },
+  { name: "Tailwind CSS", brandColor: "#06B6D4", icon: SiTailwindcss },
+  { name: "Vite", brandColor: "#646CFF", icon: SiVite },
 ];
 
 export default function Toolkit() {
   return (
-    <section id="skills" className="relative py-7 sm:py-9 border-b border-[#161616]/10">
-      {/* Structural Corner Wireframe Markers */}
-      <span className="absolute -left-[5px] -top-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
-        +
-      </span>
-      <span className="absolute -right-[5px] -top-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
-        +
-      </span>
-      <span className="absolute -left-[5px] -bottom-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
-        +
-      </span>
-      <span className="absolute -right-[5px] -bottom-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
+    <section
+      id="skills"
+      aria-labelledby="stack"
+      className="relative border-b border-[#161616]/10 py-7 sm:py-9"
+    >
+      {/* Corner markers */}
+      <span className="pointer-events-none absolute -left-[5px] -top-[5px] hidden select-none font-mono text-[10px] text-[#161616]/30 sm:inline-block">
         +
       </span>
 
+      <span className="pointer-events-none absolute -right-[5px] -top-[5px] hidden select-none font-mono text-[10px] text-[#161616]/30 sm:inline-block">
+        +
+      </span>
+
+      <span className="pointer-events-none absolute -bottom-[5px] -left-[5px] hidden select-none font-mono text-[10px] text-[#161616]/30 sm:inline-block">
+        +
+      </span>
+
+      <span className="pointer-events-none absolute -bottom-[5px] -right-[5px] hidden select-none font-mono text-[10px] text-[#161616]/30 sm:inline-block">
+        +
+      </span>
+
+      {/* Header */}
       <SectionHeader
         index="01"
-        kicker="Core Toolkit"
-        title="Engineering Stack &amp; Technologies"
-        subtitle="Primary runtimes, frameworks, vector databases, and data engines leveraged across production systems."
+        kicker="AI Engineering Toolkit"
+        title="What I build with."
+        subtitle="AI systems, data infrastructure and software technologies used to build production-ready products."
       />
 
-      {/* 3-Column Categorized Grid with Micro-Tags */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-4">
-        {toolkitCategories.map((category) => (
-          <div
-            key={category.title}
-            className="flex flex-col border border-[#161616]/10 bg-white/40 p-3.5 sm:p-4 rounded-md transition-colors hover:border-[#161616]/20"
-          >
-            {/* Category Header */}
-            <div className="flex items-baseline justify-between mb-1">
-              <h3 className="text-[13.5px] font-medium tracking-tight text-[#161616]">
-                {category.title}
-              </h3>
-              <span className="font-mono text-[9px] text-[#161616]/35 font-medium">
-                {category.index}
+      {/* Capabilities */}
+      <div className="pt-6">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#161616]/40">
+            Capabilities
+          </span>
+
+          <span className="h-px flex-1 bg-[#161616]/10" />
+        </div>
+
+        <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+          {capabilities.map((capability, index) => (
+            <React.Fragment key={capability}>
+              <span className="text-[12px] font-medium tracking-tight text-[#161616]/75 transition-colors hover:text-[#161616]">
+                {capability}
               </span>
-            </div>
 
-            <p className="text-[11px] leading-[1.4] text-[#161616]/55 mb-3">
-              {category.description}
-            </p>
+              {index < capabilities.length - 1 && (
+                <span
+                  className="text-[11px] text-[#161616]/20"
+                  aria-hidden="true"
+                >
+                  /
+                </span>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
 
-            {/* Micro-Tags Flex Wrap Layout */}
-            <div className="flex flex-wrap gap-1.5 mt-auto">
-              {category.tools.map((tool) => {
-                const Icon = tool.icon;
-                return (
-                  <div
-                    key={tool.name}
-                    className="group inline-flex items-center gap-1.5 rounded-md border border-[#161616]/10 bg-white/80 px-2 py-1 text-[11px] font-medium text-[#161616] shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-all hover:border-[#161616]/30 hover:bg-white"
-                  >
-                    {Icon ? (
-                      typeof Icon === "function" && !(Icon.prototype && Icon.prototype.isReactComponent) ? (
-                        /* @ts-ignore */
-                        <Icon />
-                      ) : (
-                        /* @ts-ignore */
-                        <Icon
-                          className="h-3 w-3 shrink-0 transition-transform group-hover:scale-110"
-                          style={{ color: tool.iconColor }}
-                          aria-hidden="true"
-                        />
-                      )
-                    ) : (
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#161616]/30 shrink-0" />
-                    )}
-                    <span className="tracking-tight text-[#161616]/85 group-hover:text-[#161616]">
-                      {tool.name}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+      {/* Technologies */}
+      <div className="pt-7">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#161616]/40">
+            Technologies
+          </span>
+
+          <span className="h-px flex-1 bg-[#161616]/10" />
+
+          <span className="font-mono text-[10px] text-[#161616]/25">
+            {skills.length}
+          </span>
+        </div>
+
+        <ul className="flex flex-wrap gap-2">
+          {skills.map((skill) => {
+            const Icon = skill.icon;
+
+            return (
+              <li key={skill.name}>
+                <span className="group inline-flex select-none items-center gap-1.5 whitespace-nowrap rounded-md border border-[#161616]/10 bg-white/80 px-2.5 py-1 text-[11.5px] font-medium text-[#161616] shadow-[0_1px_2px_rgba(0,0,0,0.02)] transition-all duration-200 hover:-translate-y-px hover:border-[#161616]/30 hover:bg-white">
+                  <Icon
+                    className="h-3.5 w-3.5 shrink-0 transition-transform duration-200 group-hover:scale-110"
+                    style={{ color: skill.brandColor }}
+                    aria-hidden="true"
+                  />
+
+                  <span className="tracking-tight text-[#161616]/85 group-hover:text-[#161616]">
+                    {skill.name}
+                  </span>
+                </span>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
