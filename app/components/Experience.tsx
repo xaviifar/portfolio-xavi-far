@@ -159,13 +159,6 @@ export default function Experience() {
             →
           </span>
         </a>
-
-        <Link
-          href="/experience"
-          className="text-[12px] font-medium text-[#161616]/60 underline underline-offset-4 hover:text-[#161616] transition-colors"
-        >
-          View detailed log &amp; education
-        </Link>
       </div>
     </section>
   );

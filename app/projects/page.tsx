@@ -9,6 +9,7 @@ interface ProjectDetail {
   subtitle: string;
   link: string;
   image: string;
+  bgImage?: string;
   problem: string;
   architecture: string;
   built: string;
@@ -23,6 +24,7 @@ const allProjects: ProjectDetail[] = [
     subtitle: "Autonomous multi-agent orchestration system",
     link: "https://github.com/xaviifar",
     image: "/portfolio.jpg",
+    bgImage: "/back.jpg",
     problem:
       "Legacy workflow systems failed to automate complex data extraction and multi-step reasoning in real time, causing manual backlogs.",
     architecture:
@@ -70,6 +72,7 @@ const allProjects: ProjectDetail[] = [
     subtitle: "Enterprise semantic search & knowledge retrieval",
     link: "https://github.com/xaviifar",
     image: "/portfolio.jpg",
+    bgImage: "/back.jpg",
     problem:
       "Technical teams spent over 2 hours daily searching for specific architectural clauses and compliance standards across thousands of PDFs.",
     architecture:
@@ -117,114 +120,216 @@ const allProjects: ProjectDetail[] = [
   },
 ];
 
+const certifications = [
+  {
+    id: "01",
+    title: "MSc Artificial Intelligence & Big Data",
+    issuer: "Centre Estudis Monlau",
+    date: "2025 — 2026",
+    credentialId: "MONLAU-AI-2026-XF",
+    logoSrc: "/img/monlau.jpg",
+    skills: ["Deep Learning", "Spark", "Kafka", "Neural Architectures"],
+  },
+  {
+    id: "02",
+    title: "Cross-Platform Application Development",
+    issuer: "Centre Estudis Monlau",
+    date: "2025 — 2026",
+    credentialId: "MONLAU-DAM-2026-XF",
+    logoSrc: "/img/monlau.jpg",
+    skills: ["Full-Stack", "Databases", "Distributed Systems"],
+  },
+  {
+    id: "03",
+    title: "BSc in Computer Engineering",
+    issuer: "Universitat de Lleida",
+    date: "Academic Background",
+    credentialId: "UDL-ENG-XF",
+    logoSrc: "/img/udl.jpg",
+    skills: ["Algorithms", "Data Structures", "OS Architecture"],
+  },
+];
+
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-[#f3f3f1] text-[#161616]">
-      {/* Master Container ("Hoja de Papel" blueprint effect) */}
-      <div className="mx-auto flex min-h-screen w-full max-w-[840px] flex-col border-[#161616]/10 px-6 sm:border-x sm:px-12 md:px-16">
+    <main className="min-h-screen bg-[#f3f3f1] text-[#161616] bg-grid-structural">
+      {/* Master Container ("Prathm Structural Grid") */}
+      <div className="relative mx-auto flex min-h-screen w-full max-w-[840px] flex-col border-[#161616]/10 bg-[#f3f3f1] px-5 sm:border-x sm:px-10 md:px-14 shadow-[0_0_50px_rgba(0,0,0,0.02)]">
         <Header />
 
-        {/* Page Header */}
-        <div className="pt-10 pb-4">
+        {/* Section 01: Project Blueprints */}
+        <section className="relative py-7 sm:py-9 border-b border-[#161616]/10">
           <SectionHeader
-            index="INDEX // 01"
-            title="Projects & Architecture Archive"
+            index="01"
+            kicker="Production Blueprints"
+            title="Projects &amp; Architecture Archive"
             subtitle="A comprehensive record of backend architectures, AI agent systems, and data pipelines built for production environments."
           />
-        </div>
 
-        {/* Project Technical Blueprints */}
-        <div className="flex flex-col gap-16 sm:gap-20 pb-16">
-          {allProjects.map((project) => (
-            <article key={project.id} className="group flex flex-col gap-6">
-              {/* Project Title & Status */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 border-b border-[#161616]/10 pb-4">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-[11px] text-[#161616]/40">
-                    {project.id}
-                  </span>
-                  <h3 className="text-[20px] sm:text-[24px] font-medium tracking-tight text-[#161616]">
-                    {project.title}
-                  </h3>
-                </div>
-                <span className="text-[13px] text-[#161616]/60 font-mono">
-                  {project.subtitle}
-                </span>
-              </div>
-
-              {/* Panoramic Media Box */}
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-white/60 ring-1 ring-inset ring-[#161616]/10 sm:aspect-[21/9]">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 840px) 100vw, 840px"
-                  className="object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                />
-              </div>
-
-              {/* Blueprint Metadata Table */}
-              <div className="flex flex-col border-t border-[#161616]/10">
-                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
-                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
-                    Problem
-                  </span>
-                  <span className="text-[13.5px] leading-[1.65] text-[#161616]/80 sm:text-[14px]">
-                    {project.problem}
+          <div className="flex flex-col gap-12 sm:gap-14">
+            {allProjects.map((project) => (
+              <article key={project.id} className="group flex flex-col gap-4">
+                {/* Project Title & Status */}
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5 border-b border-[#161616]/10 pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="font-mono text-[10.5px] text-[#161616]/40 font-medium">
+                      {project.id}
+                    </span>
+                    <h3 className="text-[18px] sm:text-[20px] font-medium tracking-tight text-[#161616]">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <span className="text-[12px] text-[#161616]/60 font-mono">
+                    {project.subtitle}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
-                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
-                    Architecture
-                  </span>
-                  <span className="text-[13.5px] leading-[1.65] text-[#161616]/80 sm:text-[14px]">
-                    {project.architecture}
-                  </span>
+                {/* Media Container with Background Image & Foreground Screenshot Layer */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md border border-[#161616]/10 bg-zinc-100 sm:aspect-[21/9] shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+                  {/* Background Stage Image */}
+                  <Image
+                    src={project.bgImage || "/back.jpg"}
+                    alt=""
+                    fill
+                    sizes="(max-width: 840px) 100vw, 840px"
+                    className="object-cover opacity-25 blur-[1px]  transition-all duration-500 group-hover:scale-105 group-hover:opacity-35"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/30 to-transparent" />
+
+                  {/* Foreground Project Capture */}
+                  <div className="relative z-10 flex h-full w-full items-center justify-center p-4 sm:p-6">
+                    <div className="relative h-full w-full overflow-hidden rounded-md border border-[#161616]/15 bg-white shadow-md transition-transform duration-500 ease-out group-hover:scale-[1.02]">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 840px) 100vw, 840px"
+                        className="object-cover object-top  transition-all duration-500 "
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
-                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
-                    Engineering
-                  </span>
-                  <span className="text-[13.5px] leading-[1.65] text-[#161616]/80 sm:text-[14px]">
-                    {project.built}
-                  </span>
+                {/* Blueprint Metadata Table */}
+                <div className="flex flex-col border-t border-[#161616]/10">
+                  <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[130px_1fr] border-b border-[#161616]/10 py-3">
+                    <span className="text-[9.5px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
+                      Problem
+                    </span>
+                    <span className="text-[13px] leading-[1.6] text-[#161616]/80">
+                      {project.problem}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[130px_1fr] border-b border-[#161616]/10 py-3">
+                    <span className="text-[9.5px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
+                      Architecture
+                    </span>
+                    <span className="text-[13px] leading-[1.6] text-[#161616]/80">
+                      {project.architecture}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[130px_1fr] border-b border-[#161616]/10 py-3">
+                    <span className="text-[9.5px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
+                      Engineering
+                    </span>
+                    <span className="text-[13px] leading-[1.6] text-[#161616]/80">
+                      {project.built}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[130px_1fr] border-b border-[#161616]/10 py-3">
+                    <span className="text-[9.5px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
+                      Stack
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.map((t) => (
+                        <span
+                          key={t.name}
+                          className="inline-flex items-center gap-1.5 rounded-md bg-white border border-[#161616]/10 px-2 py-0.8 text-[11px] font-medium text-[#161616]"
+                        >
+                          {t.icon && (
+                            <span className="flex items-center justify-center shrink-0">
+                              {t.icon}
+                            </span>
+                          )}
+                          {t.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-[100px_1fr] sm:grid-cols-[130px_1fr] py-3">
+                    <span className="text-[9.5px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
+                      Result
+                    </span>
+                    <span className="text-[13px] font-medium leading-[1.6] text-[#161616]">
+                      {project.result}
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 02: Certifications */}
+        <section className="relative py-7 sm:py-9 border-b border-[#161616]/10">
+          <SectionHeader
+            index="02"
+            kicker="Validated Knowledge"
+            title="Certifications &amp; Credentials"
+            subtitle="Verified academic credentials and formal engineering specializations."
+          />
+
+          <div className="flex flex-col gap-4">
+            {certifications.map((cert) => (
+              <div
+                key={cert.id}
+                className="group flex items-start gap-3.5 sm:gap-4 border-b border-[#161616]/10 pb-4 last:border-0"
+              >
+                <div className="relative mt-0.5 h-9 w-9 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white p-1">
+                  <Image
+                    src={cert.logoSrc}
+                    alt={cert.issuer}
+                    fill
+                    className="object-contain p-0.5"
+                  />
                 </div>
 
-                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] border-b border-[#161616]/10 py-3.5">
-                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
-                    Stack
+                <div className="flex flex-1 flex-col">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                    <h4 className="text-[14px] font-medium text-[#161616]">
+                      {cert.title}
+                    </h4>
+                    <span className="font-mono text-[10.5px] text-[#161616]/40">
+                      {cert.date}
+                    </span>
+                  </div>
+
+                  <span className="text-[12.5px] text-[#161616]/60 font-medium">
+                    {cert.issuer}
                   </span>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((t) => (
+
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <span className="font-mono text-[10px] text-[#161616]/50 bg-white px-2 py-0.5 rounded border border-[#161616]/10">
+                      ID: {cert.credentialId}
+                    </span>
+                    {cert.skills.map((s) => (
                       <span
-                        key={t.name}
-                        className="inline-flex items-center gap-1.5 rounded-md bg-white/60 border border-[#161616]/10 px-2.5 py-1 text-[11px] font-medium text-[#161616]"
+                        key={s}
+                        className="rounded-md bg-white border border-[#161616]/10 px-2 py-0.5 text-[10.5px] font-medium text-[#161616]/75"
                       >
-                        {t.icon && (
-                          <span className="flex items-center justify-center shrink-0">
-                            {t.icon}
-                          </span>
-                        )}
-                        {t.name}
+                        {s}
                       </span>
                     ))}
                   </div>
                 </div>
-
-                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] py-3.5">
-                  <span className="text-[10px] uppercase font-mono tracking-[0.1em] text-[#161616]/40 font-medium pt-0.5">
-                    Result
-                  </span>
-                  <span className="text-[13.5px] font-medium leading-[1.65] text-[#161616] sm:text-[14px]">
-                    {project.result}
-                  </span>
-                </div>
               </div>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
 
         <Footer />
       </div>

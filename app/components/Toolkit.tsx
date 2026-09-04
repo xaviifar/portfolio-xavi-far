@@ -175,6 +175,12 @@ export default function Toolkit() {
               )}
             </React.Fragment>
           ))}
+          <span
+    className="text-[12px] font-medium tracking-tight text-[#161616]/35"
+    aria-label="And more"
+  >
+    ...
+  </span>
         </div>
       </div>
 
