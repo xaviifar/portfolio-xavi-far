@@ -2,7 +2,6 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import SelectedWork from "./components/SelectedWork";
 import Experience from "./components/Experience";
-import Philosophy from "./components/Philosophy";
 import Toolkit from "./components/Toolkit";
 import Footer from "./components/Footer";
 
@@ -28,9 +27,6 @@ export default function Home() {
 
         {/* Work Experience */}
         <Experience />
-
-        {/* Engineering Philosophy */}
-        <Philosophy />
 
         {/* Upgraded Core Toolkit & Architecture Matrix */}
         <Toolkit />

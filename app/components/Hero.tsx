@@ -9,8 +9,8 @@ interface ActionLink {
 
 const actionLinks: ActionLink[] = [
   {
-    name: "Access Full Resume",
-    href: "/cv.pdf",
+    name: "Resume",
+    href: "/Xavi_Far-CV.pdf",
     primary: true,
     icon: (
       <svg
@@ -32,8 +32,8 @@ const actionLinks: ActionLink[] = [
     ),
   },
   {
-    name: "Initialize Comms",
-    href: "mailto:tuemail@dominio.com",
+    name: "Send an email",
+    href: "mailto:xavifarmartinez@gmail.com",
     primary: true,
     icon: (
       <svg
