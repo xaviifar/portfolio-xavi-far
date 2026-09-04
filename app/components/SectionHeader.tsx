@@ -2,6 +2,7 @@ interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   kicker?: string;
+  index?: string;
   className?: string;
 }
 
@@ -9,14 +10,16 @@ export default function SectionHeader({
   title,
   subtitle,
   kicker,
+  index,
   className = "",
 }: SectionHeaderProps) {
   return (
     <div className={`flex flex-col mb-5 sm:mb-6 ${className}`}>
       <div className="flex items-center justify-between gap-3">
         <div className="flex flex-col gap-0.5">
-          {kicker && (
+          {(kicker || index) && (
             <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#161616]/40 font-medium">
+              {index && <span className="text-[#161616]/70 mr-1.5">{index} /</span>}
               {kicker}
             </span>
           )}

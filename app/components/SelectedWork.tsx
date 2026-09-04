@@ -24,7 +24,7 @@ const selectedProjects: Project[] = [
     title: "AI Agent Platform",
     description:
       "Autonomous multi-agent system built for parallel document extraction, schema validation, and real-time decision routing.",
-    image: "/portfolio.jpg",
+    image: "/img/orbhi.png",
     bgImage: "/back.jpg",
     liveUrl: "/projects",
     githubUrl: "https://github.com/xaviifar",

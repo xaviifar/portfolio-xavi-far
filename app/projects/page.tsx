@@ -2,6 +2,8 @@ import Image from "next/image";
 import Header from "@/app/components/Header";
 import SectionHeader from "@/app/components/SectionHeader";
 import Footer from "@/app/components/Footer";
+import { IconType } from "react-icons";
+import { VscAzure } from "react-icons/vsc";
 
 interface ProjectDetail {
   id: string;
@@ -23,7 +25,7 @@ const allProjects: ProjectDetail[] = [
     title: "AI Agent Platform",
     subtitle: "Autonomous multi-agent orchestration system",
     link: "https://github.com/xaviifar",
-    image: "/portfolio.jpg",
+    image: "/img/orbhi.png",
     bgImage: "/back.jpg",
     problem:
       "Legacy workflow systems failed to automate complex data extraction and multi-step reasoning in real time, causing manual backlogs.",
@@ -120,9 +122,41 @@ const allProjects: ProjectDetail[] = [
   },
 ];
 
-const certifications = [
+interface CertificationItem {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  credentialId: string;
+  logoSrc?: string;
+  icon?: IconType;
+  brandColor?: string;
+  skills: string[];
+}
+
+const certifications: CertificationItem[] = [
   {
     id: "01",
+    title: "Microsoft Certified: Azure AI Fundamentals (AI-900 / AI-901)",
+    issuer: "Microsoft",
+    date: "Verified Certification",
+    credentialId: "MICROSOFT-AI-901",
+    icon: VscAzure,
+    brandColor: "#0078D4",
+    skills: ["Azure OpenAI", "Cognitive Services", "Machine Learning", "Computer Vision", "NLP"],
+  },
+  {
+    id: "02",
+    title: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+    issuer: "Microsoft",
+    date: "Verified Certification",
+    credentialId: "MICROSOFT-AZ-900",
+    icon: VscAzure,
+    brandColor: "#0078D4",
+    skills: ["Azure Cloud", "Cloud Architecture", "Security & Compliance", "Azure Services"],
+  },
+  {
+    id: "03",
     title: "MSc Artificial Intelligence & Big Data",
     issuer: "Centre Estudis Monlau",
     date: "2025 — 2026",
@@ -131,8 +165,8 @@ const certifications = [
     skills: ["Deep Learning", "Spark", "Kafka", "Neural Architectures"],
   },
   {
-    id: "02",
-    title: "Cross-Platform Application Development",
+    id: "04",
+    title: "Cross-Platform Application Development (DAM)",
     issuer: "Centre Estudis Monlau",
     date: "2025 — 2026",
     credentialId: "MONLAU-DAM-2026-XF",
@@ -140,7 +174,7 @@ const certifications = [
     skills: ["Full-Stack", "Databases", "Distributed Systems"],
   },
   {
-    id: "03",
+    id: "05",
     title: "BSc in Computer Engineering",
     issuer: "Universitat de Lleida",
     date: "Academic Background",
@@ -289,13 +323,20 @@ export default function ProjectsPage() {
                 key={cert.id}
                 className="group flex items-start gap-3.5 sm:gap-4 border-b border-[#161616]/10 pb-4 last:border-0"
               >
-                <div className="relative mt-0.5 h-9 w-9 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white p-1">
-                  <Image
-                    src={cert.logoSrc}
-                    alt={cert.issuer}
-                    fill
-                    className="object-contain p-0.5"
-                  />
+                <div className="relative mt-0.5 h-9 w-9 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white p-1 flex items-center justify-center">
+                  {cert.logoSrc ? (
+                    <Image
+                      src={cert.logoSrc}
+                      alt={cert.issuer}
+                      fill
+                      className="object-contain p-0.5"
+                    />
+                  ) : cert.icon ? (
+                    <cert.icon
+                      size={18}
+                      style={{ color: cert.brandColor || "#161616" }}
+                    />
+                  ) : null}
                 </div>
 
                 <div className="flex flex-1 flex-col">
