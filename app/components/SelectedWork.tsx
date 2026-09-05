@@ -68,7 +68,7 @@ export const selectedProjects: Project[] = [
     title: "BOE RAG Retrieval System",
     description:
       "Retrieval pipeline over Spanish Official State Gazette documents, combining automated ingestion, semantic chunking, vector search, BM25 retrieval and cross-encoder reranking.",
-    image: "/portfolio.jpg",
+    image: "/img/rag.jpg",
     bgImage: "/back.jpg",
     liveUrl: "/projects",
     githubUrl: "https://github.com/xaviifar",
@@ -82,17 +82,14 @@ export const selectedProjects: Project[] = [
         icon: <SiQdrant className="h-3.5 w-3.5 shrink-0" style={{ color: "#DC244C" }} />,
       },
       {
-        name: "FastAPI",
-        icon: <SiFastapi className="h-3.5 w-3.5 shrink-0" style={{ color: "#009688" }} />,
-      },
-      {
         name: "Airflow",
         icon: <SiApacheairflow className="h-3.5 w-3.5 shrink-0" style={{ color: "#017CEE" }} />,
       },
       {
-        name: "Next.js",
-        icon: <SiNextdotjs className="h-3.5 w-3.5 shrink-0 text-[#161616]" />,
+        name: "Docker",
+        icon: <SiDocker className="h-3.5 w-3.5 shrink-0" style={{ color: "#2496ED" }} />,
       },
+    
     ],
   },
 ];
@@ -101,7 +98,7 @@ export default function SelectedWork() {
   return (
     <section aria-labelledby="projects" className="relative py-8 sm:py-10 border-b border-[#161616]/10">
       {/* Structural Corner Wireframe Markers */}
-      <span className="absolute -left-[5px] -top-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
+      {/* <span className="absolute -left-[5px] -top-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
         +
       </span>
       <span className="absolute -right-[5px] -top-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
@@ -109,13 +106,13 @@ export default function SelectedWork() {
       </span>
       <span className="absolute -left-[5px] -bottom-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
         +
-      </span>
-      <span className="absolute -right-[5px] -bottom-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
+      </span> */}
+      {/* <span className="absolute -right-[5px] -bottom-[5px] font-mono text-[10px] text-[#161616]/30 select-none pointer-events-none hidden sm:inline-block">
         +
-      </span>
+      </span> */}
 
       <SectionHeader
-        index="03"
+        index="01"
         kicker="Featured Work"
         title="Selected Projects"
         subtitle="AI systems, RAG pipelines, and distributed architectures built for production."
