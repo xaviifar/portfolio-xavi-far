@@ -142,7 +142,7 @@ export default function Toolkit() {
 
       {/* Header */}
       <SectionHeader
-        index="01"
+        index="03"
         kicker="AI Engineering Toolkit"
         title="What I build with."
         subtitle="AI systems, data infrastructure and software technologies used to build production-ready products."
