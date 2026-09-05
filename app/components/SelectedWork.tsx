@@ -1,6 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "./SectionHeader";
+import {
+  SiPython,
+  SiFastapi,
+  SiRedis,
+  SiPostgresql,
+  SiDocker,
+  SiQdrant,
+  SiApacheairflow,
+  SiNextdotjs,
+  SiLangchain,
+} from "react-icons/si";
 
 interface TechItem {
   name: string;
@@ -18,12 +29,12 @@ interface Project {
   tech: TechItem[];
 }
 
-const selectedProjects: Project[] = [
+export const selectedProjects: Project[] = [
   {
     id: "01",
     title: "AI Agent Platform",
     description:
-      "Autonomous multi-agent system built for parallel document extraction, schema validation, and real-time decision routing.",
+      "Agent platform built in Python for orchestrating autonomous workflows, tool execution, persistent context and real-time decision making across specialized AI agents.",
     image: "/img/orbhi.png",
     bgImage: "/back.jpg",
     liveUrl: "/projects",
@@ -31,100 +42,56 @@ const selectedProjects: Project[] = [
     tech: [
       {
         name: "Python",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-3 w-3 shrink-0">
-            <path
-              fill="#3776AB"
-              d="M64 5.92c-29.34 0-28.32 12.72-28.32 12.72l.06 13.07h28.76v4.1H32.44S14.28 34.6 14.28 62.77c0 28.16 16.03 29.56 16.03 29.56l10.3.06v-14.7s-.2-16.12 16.3-16.12h17.93s15.34-.33 15.34-14.97V30.27s1.3-24.35-26.18-24.35zm-14.53 8.35a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8z"
-            />
-            <path
-              fill="#FFD43B"
-              d="M64 121.73c29.34 0 28.32-12.72 28.32-12.72l-.06-13.07H63.5v-4.1h32.06s18.16 1.22 18.16-26.96c0-28.16-16.03-29.56-16.03-29.56l-10.3-.06v14.7s.2 16.13-16.3 16.13H53.15s-15.35.33-15.35 14.96v16.32s-1.3 24.36 26.2 24.36zm14.53-8.36a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8z"
-            />
-          </svg>
-        ),
-      },
-      {
-        name: "LangChain",
-        icon: (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="shrink-0">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#1C1C1C" />
-            <path d="M2 17L12 22L22 17" stroke="#1C1C1C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M2 12L12 17L22 12" stroke="#1C1C1C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        ),
+        icon: <SiPython className="h-3.5 w-3.5 shrink-0" style={{ color: "#3776AB" }} />,
       },
       {
         name: "FastAPI",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-3 w-3 shrink-0">
-            <path fill="#009688" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0z" />
-            <path fill="#FFF" d="M64 16.8L37.1 61h22.6v50.2L86.9 67H64.3V16.8z" />
-          </svg>
-        ),
+        icon: <SiFastapi className="h-3.5 w-3.5 shrink-0" style={{ color: "#009688" }} />,
       },
       {
         name: "Redis",
-        icon: (
-          <svg viewBox="0 0 24 24" className="h-3 w-3 shrink-0" fill="#DC382D">
-            <path d="M22.5 15.5l-9.5 5.5-9.5-5.5v-7l9.5-5.5 9.5 5.5v7z" />
-          </svg>
-        ),
+        icon: <SiRedis className="h-3.5 w-3.5 shrink-0" style={{ color: "#DC382D" }} />,
       },
       {
         name: "PostgreSQL",
-        icon: (
-          <svg viewBox="0 0 24 24" className="h-3 w-3 shrink-0" fill="#4169E1">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-          </svg>
-        ),
+        icon: <SiPostgresql className="h-3.5 w-3.5 shrink-0" style={{ color: "#4169E1" }} />,
       },
+      {
+        name: "Docker",
+        icon: <SiDocker className="h-3.5 w-3.5 shrink-0" style={{ color: "#2496ED" }} />,
+      },
+      
     ],
   },
   {
     id: "02",
-    title: "RAG BOE Subvenciones",
+    title: "BOE RAG Retrieval System",
     description:
-      "High-accuracy semantic search engine indexing official public state gazettes with hybrid BM25 + dense vector ranking.",
+      "Retrieval pipeline over Spanish Official State Gazette documents, combining automated ingestion, semantic chunking, vector search, BM25 retrieval and cross-encoder reranking.",
     image: "/portfolio.jpg",
     bgImage: "/back.jpg",
     liveUrl: "/projects",
     githubUrl: "https://github.com/xaviifar",
     tech: [
       {
+        name: "Python",
+        icon: <SiPython className="h-3.5 w-3.5 shrink-0" style={{ color: "#3776AB" }} />,
+      },
+      {
         name: "Qdrant",
-        icon: (
-          <svg viewBox="0 0 24 24" className="h-3 w-3 shrink-0" fill="#DC382D">
-            <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" />
-          </svg>
-        ),
+        icon: <SiQdrant className="h-3.5 w-3.5 shrink-0" style={{ color: "#DC244C" }} />,
+      },
+      {
+        name: "FastAPI",
+        icon: <SiFastapi className="h-3.5 w-3.5 shrink-0" style={{ color: "#009688" }} />,
       },
       {
         name: "Airflow",
-        icon: (
-          <svg viewBox="0 0 24 24" className="h-3 w-3 shrink-0" fill="#017CEE">
-            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93V13h2.5l-3.5-5-3.5 5H11v3.93a8 8 0 1 1 2 0z" />
-          </svg>
-        ),
-      },
-      {
-        name: "Python",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-3 w-3 shrink-0">
-            <path fill="#3776AB" d="M64 5.92c-29.34 0-28.32 12.72-28.32 12.72l.06 13.07h28.76v4.1H32.44S14.28 34.6 14.28 62.77c0 28.16 16.03 29.56 16.03 29.56l10.3.06v-14.7s-.2-16.12 16.3-16.12h17.93s15.34-.33 15.34-14.97V30.27s1.3-24.35-26.18-24.35zm-14.53 8.35a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8z" />
-            <path fill="#FFD43B" d="M64 121.73c29.34 0 28.32-12.72 28.32-12.72l-.06-13.07H63.5v-4.1h32.06s18.16 1.22 18.16-26.96c0-28.16-16.03-29.56-16.03-29.56l-10.3-.06v14.7s.2 16.13-16.3 16.13H53.15s-15.35.33-15.35 14.96v16.32s-1.3 24.36 26.2 24.36zm14.53-8.36a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8z" />
-          </svg>
-        ),
+        icon: <SiApacheairflow className="h-3.5 w-3.5 shrink-0" style={{ color: "#017CEE" }} />,
       },
       {
         name: "Next.js",
-        icon: (
-          <svg viewBox="0 0 128 128" className="h-3 w-3 shrink-0" fill="none">
-            <path fill="#000" d="M64 128c35.346 0 64-28.654 64-64S99.346 0 64 0 0 28.654 0 64s28.654 64 64 64z" />
-            <path fill="#fff" d="M102.663 94.757l-43.04-63.535h-9.52v64.673h8.318V45.249l37.079 56.402a63.593 63.593 0 0 0 7.163-6.894z" />
-            <path fill="#fff" d="M96.096 42.668h-8.318V85.33h8.318V42.668z" />
-          </svg>
-        ),
+        icon: <SiNextdotjs className="h-3.5 w-3.5 shrink-0 text-[#161616]" />,
       },
     ],
   },
@@ -151,7 +118,7 @@ export default function SelectedWork() {
         index="03"
         kicker="Featured Work"
         title="Selected Projects"
-        subtitle="Engineered systems, RAG retrieval pipelines, and distributed architectures built for production."
+        subtitle="AI systems, RAG pipelines, and distributed architectures built for production."
       />
 
       {/* Prathm-Style 2-Column Grid (Enlarged Cards) */}

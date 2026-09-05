@@ -55,7 +55,7 @@ const workHistory: WorkExperience[] = [
     location: "Barcelona, Spain",
     logoSrc: "/img/esdi.webp",
     description:
-      "Building AI-powered backend systems, data workflows and web applications for production environments.",
+      "Building AI-powered systems, backend services and data workflows for production environments.",
     achievements: [
       "Designed Python and FastAPI services around asynchronous processing and distributed workflows.",
       "Built RAG pipelines combining vector search and hybrid retrieval with Qdrant and BM25.",
@@ -123,7 +123,7 @@ const educationHistory = [
     period: "2025 — 2026",
     logoSrc: "/img/monlau.jpg",
     details:
-      "Software engineering, databases, application architecture and development across platforms.",
+      "Software engineering, databases, application architecture and cross-platform development.",
     skills: [
       { name: "PostgreSQL", brandColor: "#4169E1", icon: SiPostgresql },
       { name: "Docker", brandColor: "#2496ED", icon: SiDocker },
@@ -150,6 +150,8 @@ const certifications = [
     title: "Azure AI Fundamentals",
     issuer: "Microsoft",
     code: "AI-900 / AI-901",
+    description:
+      "Fundamentals of Azure AI services, machine learning, computer vision and natural language processing.",
     icon: VscAzure,
     color: "#0078D4",
   },
@@ -157,6 +159,8 @@ const certifications = [
     title: "Azure Fundamentals",
     issuer: "Microsoft",
     code: "AZ-900",
+    description:
+      "Foundations of Azure cloud services, architecture, security and core platform concepts.",
     icon: VscAzure,
     color: "#0078D4",
   },
@@ -171,7 +175,7 @@ function TechList({ technologies }: { technologies: TechBadge[] }) {
         return (
           <span
             key={tech.name}
-            className="inline-flex items-center gap-1.5 text-[11px] text-[#161616]/50"
+            className="inline-flex items-center gap-1.5 text-[10.5px] text-[#161616]/45"
           >
             <Icon
               className="h-3 w-3"
@@ -193,11 +197,11 @@ export default function ExperiencePage() {
         <Header />
 
         <div className="py-8 sm:py-10">
-          {/* Intro */}
-          <header className="border-b border-[#161616]/10 pb-10">
+          {/* PAGE INTRO */}
+          <header className="border-b border-[#161616]/10 pb-12">
             <Link
               href="/"
-              className="group mb-8 inline-flex items-center gap-1.5 font-mono text-[11px] text-[#161616]/40 transition-colors hover:text-[#161616]"
+              className="group mb-9 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[#161616]/35 transition-colors hover:text-[#161616]"
             >
               <span className="transition-transform duration-200 group-hover:-translate-x-0.5">
                 ←
@@ -205,106 +209,108 @@ export default function ExperiencePage() {
               Back
             </Link>
 
-            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-[#161616]/40">
-              Experience
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-[#161616]/35">
+              Career
             </p>
 
-            <h1 className="max-w-[620px] text-[clamp(2rem,5vw,3.2rem)] font-semibold leading-[1.02] tracking-[-0.04em]">
-              Building systems across
+            <h1 className="max-w-[680px] text-[clamp(2.1rem,5vw,3.25rem)] font-semibold leading-[1] tracking-[-0.045em]">
+              Experience, education
               <br />
-              AI, backend and data.
+              and credentials.
             </h1>
 
-            <p className="mt-5 max-w-[560px] text-[14px] leading-[1.7] text-[#161616]/60">
-              A record of the work, systems and technical direction that have
-              shaped my path as an engineer.
+            <p className="mt-5 max-w-[560px] text-[14px] leading-[1.7] text-[#161616]/55">
+              A concise overview of the work and technical background behind
+              the systems I build.
             </p>
           </header>
 
-          {/* Experience */}
-          <section className="py-10 sm:py-14">
+          {/* EXPERIENCE */}
+          <section className="py-12 sm:py-16">
             <SectionHeader
               index="01"
               kicker="Work"
               title="Experience"
-              subtitle="Roles, responsibilities and systems built in production."
+              subtitle="Professional work across AI, backend systems and infrastructure."
             />
 
-            <div className="mt-10 flex flex-col">
+            <div className="mt-10">
               {workHistory.map((job, index) => (
                 <article
                   key={job.company}
-                  className={`py-8 ${
-                    index !== workHistory.length - 1
-                      ? "border-b border-[#161616]/10"
-                      : ""
-                  }`}
+                  className={index !== workHistory.length - 1 ? "border-b border-[#161616]/10" : ""}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white">
-                      <Image
-                        src={job.logoSrc}
-                        alt={job.company}
-                        fill
-                        className="object-contain p-1"
-                      />
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                        <div>
-                          <h3 className="text-[16px] font-semibold tracking-tight">
-                            {job.role}
-                          </h3>
-
-                          <p className="mt-0.5 text-[12.5px] text-[#161616]/55">
-                            {job.company} · {job.location}
-                          </p>
-                        </div>
-
-                        <span className="font-mono text-[10.5px] text-[#161616]/40">
-                          {job.period}
-                        </span>
+                  <div className="py-9">
+                    <div className="flex gap-4">
+                      {/* Logo */}
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white">
+                        <Image
+                          src={job.logoSrc}
+                          alt={job.company}
+                          fill
+                          className="object-contain p-1"
+                        />
                       </div>
 
-                      <div className="mt-6 max-w-[650px]">
-                        <p className="text-[13.5px] leading-[1.7] text-[#161616]/70">
+                      <div className="min-w-0 flex-1">
+                        {/* Heading */}
+                        <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between">
+                          <div>
+                            <h3 className="text-[16px] font-semibold tracking-tight">
+                              {job.role}
+                            </h3>
+
+                            <p className="mt-0.5 text-[12px] text-[#161616]/45">
+                              {job.company} · {job.location}
+                            </p>
+                          </div>
+
+                          <span className="font-mono text-[10px] text-[#161616]/35">
+                            {job.period}
+                          </span>
+                        </div>
+
+                        {/* Description */}
+                        <p className="mt-6 max-w-[620px] text-[13px] leading-[1.7] text-[#161616]/65">
                           {job.description}
                         </p>
 
-                        <ul className="mt-4 space-y-2">
+                        {/* Achievements */}
+                        <ul className="mt-5 space-y-2">
                           {job.achievements.map((achievement) => (
                             <li
                               key={achievement}
-                              className="flex gap-3 text-[13px] leading-[1.6] text-[#161616]/65"
+                              className="flex gap-3 text-[12.5px] leading-[1.65] text-[#161616]/60"
                             >
-                              <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[#161616]/30" />
+                              <span className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[#161616]/25" />
                               <span>{achievement}</span>
                             </li>
                           ))}
                         </ul>
-                      </div>
 
-                      {job.previousRole && (
-                        <div className="mt-6 border-l border-[#161616]/15 pl-4">
-                          <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                            <p className="text-[12.5px] font-medium">
-                              {job.previousRole.role}
+                        {/* Previous role */}
+                        {job.previousRole && (
+                          <div className="mt-7 border-l border-[#161616]/15 pl-4">
+                            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                              <span className="text-[12px] font-medium">
+                                {job.previousRole.role}
+                              </span>
+
+                              <span className="font-mono text-[9.5px] text-[#161616]/35">
+                                {job.previousRole.period}
+                              </span>
+                            </div>
+
+                            <p className="mt-1.5 text-[11.5px] leading-[1.6] text-[#161616]/50">
+                              {job.previousRole.description}
                             </p>
-
-                            <span className="font-mono text-[10px] text-[#161616]/35">
-                              {job.previousRole.period}
-                            </span>
                           </div>
+                        )}
 
-                          <p className="mt-1.5 text-[12px] leading-[1.6] text-[#161616]/55">
-                            {job.previousRole.description}
-                          </p>
+                        {/* Tech */}
+                        <div className="mt-7">
+                          <TechList technologies={job.technologies} />
                         </div>
-                      )}
-
-                      <div className="mt-6">
-                        <TechList technologies={job.technologies} />
                       </div>
                     </div>
                   </div>
@@ -313,72 +319,54 @@ export default function ExperiencePage() {
             </div>
           </section>
 
-          {/* Education */}
-          <section className="border-t border-[#161616]/10 py-10 sm:py-14">
+          {/* EDUCATION */}
+          <section className="border-t border-[#161616]/10 py-12 sm:py-16">
             <SectionHeader
               index="02"
               kicker="Education"
-              title="Education"
-              subtitle="The academic path behind the engineering work."
+              title="Academic background"
+              subtitle="The formal education behind the technical work."
             />
 
-            <div className="mt-10 flex flex-col">
+            <div className="mt-10">
               {educationHistory.map((edu, index) => (
                 <article
                   key={edu.degree}
-                  className={`py-7 ${
-                    index !== educationHistory.length - 1
-                      ? "border-b border-[#161616]/10"
-                      : ""
-                  }`}
+                  className={index !== educationHistory.length - 1 ? "border-b border-[#161616]/10" : ""}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white">
-                      <Image
-                        src={edu.logoSrc}
-                        alt={edu.institution}
-                        fill
-                        className="object-contain p-1"
-                      />
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                        <h3 className="text-[14.5px] font-semibold">
-                          {edu.degree}
-                        </h3>
-
-                        <span className="font-mono text-[10px] text-[#161616]/40">
-                          {edu.period}
-                        </span>
+                  <div className="py-7">
+                    <div className="flex gap-4">
+                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md border border-[#161616]/10 bg-white">
+                        <Image
+                          src={edu.logoSrc}
+                          alt={edu.institution}
+                          fill
+                          className="object-contain p-1"
+                        />
                       </div>
 
-                      <p className="mt-0.5 text-[12px] text-[#161616]/50">
-                        {edu.institution}
-                      </p>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                          <h3 className="text-[14px] font-semibold">
+                            {edu.degree}
+                          </h3>
 
-                      <p className="mt-3 max-w-[620px] text-[12.5px] leading-[1.6] text-[#161616]/60">
-                        {edu.details}
-                      </p>
+                          <span className="font-mono text-[9.5px] text-[#161616]/35">
+                            {edu.period}
+                          </span>
+                        </div>
 
-                      <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                        {edu.skills.map((skill) => {
-                          const Icon = skill.icon;
+                        <p className="mt-0.5 text-[11.5px] text-[#161616]/45">
+                          {edu.institution}
+                        </p>
 
-                          return (
-                            <span
-                              key={skill.name}
-                              className="inline-flex items-center gap-1.5 text-[10.5px] text-[#161616]/45"
-                            >
-                              <Icon
-                                className="h-3 w-3"
-                                style={{ color: skill.brandColor }}
-                                aria-hidden="true"
-                              />
-                              {skill.name}
-                            </span>
-                          );
-                        })}
+                        <p className="mt-3 max-w-[600px] text-[12px] leading-[1.65] text-[#161616]/55">
+                          {edu.details}
+                        </p>
+
+                        <div className="mt-4">
+                          <TechList technologies={edu.skills} />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -387,57 +375,93 @@ export default function ExperiencePage() {
             </div>
           </section>
 
-          {/* Certifications */}
-          <section className="border-t border-[#161616]/10 py-10 sm:py-14">
-            <SectionHeader
-              index="03"
-              kicker="Credentials"
-              title="Certifications"
-              subtitle="Selected industry certifications."
-            />
+          {/* CERTIFICATIONS */}
+          <section className="border-t border-[#161616]/10 py-12 sm:py-16">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[10px] text-[#161616]/35">
+                  03
+                </span>
 
-            <div className="mt-8">
+                <span className="h-px w-8 bg-[#161616]/15" />
+
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#161616]/40">
+                  Certifications
+                </span>
+              </div>
+
+              <h2 className="mt-2 text-[clamp(1.5rem,4vw,2rem)] font-semibold tracking-[-0.03em]">
+                Microsoft certifications
+              </h2>
+
+              <p className="max-w-[520px] text-[13px] leading-[1.6] text-[#161616]/50">
+                Industry-recognized credentials in Azure AI and cloud
+                fundamentals.
+              </p>
+            </div>
+
+            <div className="mt-9">
               {certifications.map((cert, index) => {
                 const Icon = cert.icon;
 
                 return (
-                  <div
+                  <article
                     key={cert.code}
-                    className={`flex items-center justify-between gap-4 py-4 ${
+                    className={`group relative py-7 ${
                       index !== certifications.length - 1
                         ? "border-b border-[#161616]/10"
                         : ""
                     }`}
                   >
-                    <div className="flex min-w-0 items-center gap-3">
-                      <Icon
-                        className="h-4 w-4 shrink-0"
-                        style={{ color: cert.color }}
-                        aria-hidden="true"
-                      />
+                    <div className="flex gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-[#161616]/10 bg-white">
+                        <Icon
+                          className="h-6 w-6"
+                          style={{ color: cert.color }}
+                          aria-hidden="true"
+                        />
+                      </div>
 
-                      <div className="min-w-0">
-                        <p className="text-[12.5px] font-medium">
-                          {cert.title}
-                        </p>
-                        <p className="text-[11px] text-[#161616]/45">
-                          {cert.issuer}
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                          <div>
+                            <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#161616]/35">
+                              {cert.issuer}
+                            </span>
+
+                            <h3 className="mt-1 text-[16px] font-semibold tracking-tight">
+                              {cert.title}
+                            </h3>
+                          </div>
+
+                          <span className="w-fit rounded-full border border-[#161616]/10 bg-white px-2.5 py-1 font-mono text-[9px] text-[#161616]/50">
+                            {cert.code}
+                          </span>
+                        </div>
+
+                        <p className="mt-3 max-w-[590px] text-[12px] leading-[1.65] text-[#161616]/50">
+                          {cert.description}
                         </p>
                       </div>
                     </div>
-
-                    <span className="shrink-0 font-mono text-[10px] text-[#161616]/35">
-                      {cert.code}
-                    </span>
-                  </div>
+                  </article>
                 );
               })}
             </div>
           </section>
 
-          {/* Skills */}
-          <section className="border-t border-[#161616]/10 pt-10 sm:pt-14">
-            <Toolkit />
+          {/* TOOLKIT */}
+          <section className="border-t border-[#161616]/10 pt-12 sm:pt-16">
+            <SectionHeader
+              index="04"
+              kicker="Toolkit"
+              title="Technologies"
+              subtitle="A selection of the tools and technologies I work with."
+            />
+
+            <div className="mt-8">
+              <Toolkit />
+            </div>
           </section>
         </div>
 

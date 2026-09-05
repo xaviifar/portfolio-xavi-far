@@ -4,6 +4,18 @@ import SectionHeader from "@/app/components/SectionHeader";
 import Footer from "@/app/components/Footer";
 import { IconType } from "react-icons";
 import { VscAzure } from "react-icons/vsc";
+import {
+  SiPython,
+  SiFastapi,
+  SiRedis,
+  SiPostgresql,
+  SiDocker,
+  SiQdrant,
+  SiApacheairflow,
+  SiNextdotjs,
+  SiLangchain,
+  SiTailwindcss,
+} from "react-icons/si";
 
 interface ProjectDetail {
   id: string;
@@ -32,46 +44,40 @@ const allProjects: ProjectDetail[] = [
     architecture:
       "Event-driven microservices architecture communicating via Redis message brokers with a central LangChain LLM orchestrator and FastAPI runtime.",
     built:
-      "Engineered deterministic routing loops, integrated Pinecone vector memory for dynamic context recall, and containerized deployment with Docker.",
+      "Engineered deterministic routing loops, integrated vector memory for dynamic context recall, and containerized deployment with Docker.",
     technologies: [
       {
         name: "Python",
-        icon: (
-          <svg viewBox="0 0 128 128" width="12" height="12">
-            <path fill="#3776AB" d="M64 5.92c-29.34 0-28.32 12.72-28.32 12.72l.06 13.07h28.76v4.1H32.44S14.28 34.6 14.28 62.77c0 28.16 16.03 29.56 16.03 29.56l10.3.06v-14.7s-.2-16.12 16.3-16.12h17.93s15.34-.33 15.34-14.97V30.27s1.3-24.35-26.18-24.35zm-14.53 8.35a3.9 3.9 0 1 1 0 7.8 3.9 3.9 0 0 1 0-7.8z" />
-            <path fill="#FFD43B" d="M64 121.73c29.34 0 28.32-12.72 28.32-12.72l-.06-13.07H63.5v-4.1h32.06s18.16 1.22 18.16-26.96c0-28.16-16.03-29.56-16.03-29.56l-10.3-.06v14.7s.2 16.13-16.3 16.13H53.15s-15.35.33-15.35 14.96v16.32s-1.3 24.36 26.2 24.36zm14.53-8.36a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8z" />
-          </svg>
-        ),
-      },
-      {
-        name: "LangChain",
-        icon: (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#1C1C1C" />
-            <path d="M2 17L12 22L22 17" stroke="#1C1C1C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M2 12L12 17L22 12" stroke="#1C1C1C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        ),
+        icon: <SiPython className="h-3.5 w-3.5 shrink-0" style={{ color: "#3776AB" }} />,
       },
       {
         name: "FastAPI",
-        icon: (
-          <svg viewBox="0 0 128 128" width="12" height="12">
-            <path fill="#009688" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0z" />
-            <path fill="#FFF" d="M64 16.8L37.1 61h22.6v50.2L86.9 67H64.3V16.8z" />
-          </svg>
-        ),
+        icon: <SiFastapi className="h-3.5 w-3.5 shrink-0" style={{ color: "#009688" }} />,
       },
-      { name: "PostgreSQL" },
-      { name: "Docker" },
+      {
+        name: "Redis",
+        icon: <SiRedis className="h-3.5 w-3.5 shrink-0" style={{ color: "#DC382D" }} />,
+      },
+      {
+        name: "PostgreSQL",
+        icon: <SiPostgresql className="h-3.5 w-3.5 shrink-0" style={{ color: "#4169E1" }} />,
+      },
+      {
+        name: "Docker",
+        icon: <SiDocker className="h-3.5 w-3.5 shrink-0" style={{ color: "#2496ED" }} />,
+      },
+      {
+        name: "LangChain",
+        icon: <SiLangchain className="h-3.5 w-3.5 shrink-0" style={{ color: "#1C1C1C" }} />,
+      },
     ],
     result:
       "Reduced processing time by 85% and successfully automated over 10,000 weekly recurring tasks with high validation accuracy.",
   },
   {
     id: "02",
-    title: "RAG Analytics Engine",
-    subtitle: "Enterprise semantic search & knowledge retrieval",
+    title: "BOE RAG Retrieval System",
+    subtitle: "Enterprise semantic search & knowledge retrieval over Spanish Official State Gazette",
     link: "https://github.com/xaviifar",
     image: "/portfolio.jpg",
     bgImage: "/back.jpg",
@@ -83,39 +89,29 @@ const allProjects: ProjectDetail[] = [
       "Designed sliding-window chunking algorithms, integrated hybrid BM25 + dense vector ranking, and built conversational query streams.",
     technologies: [
       {
-        name: "Vector DB",
-        icon: (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-            <path d="M4 4H20V8H4V4Z" fill="#F56565" />
-            <path d="M4 10H20V14H4V10Z" fill="#4299E1" />
-            <path d="M4 16H20V20H4V16Z" fill="#48BB78" />
-          </svg>
-        ),
+        name: "Python",
+        icon: <SiPython className="h-3.5 w-3.5 shrink-0" style={{ color: "#3776AB" }} />,
+      },
+      {
+        name: "Qdrant",
+        icon: <SiQdrant className="h-3.5 w-3.5 shrink-0" style={{ color: "#DC244C" }} />,
+      },
+      {
+        name: "FastAPI",
+        icon: <SiFastapi className="h-3.5 w-3.5 shrink-0" style={{ color: "#009688" }} />,
+      },
+      {
+        name: "Airflow",
+        icon: <SiApacheairflow className="h-3.5 w-3.5 shrink-0" style={{ color: "#017CEE" }} />,
       },
       {
         name: "Next.js",
-        icon: (
-          <svg viewBox="0 0 128 128" width="12" height="12" fill="none">
-            <path fill="#000" d="M64 128c35.346 0 64-28.654 64-64S99.346 0 64 0 0 28.654 0 64s28.654 64 64 64z" />
-            <path fill="#fff" d="M102.663 94.757l-43.04-63.535h-9.52v64.673h8.318V45.249l37.079 56.402a63.593 63.593 0 0 0 7.163-6.894z" />
-            <path fill="#fff" d="M96.096 42.668h-8.318V85.33h8.318V42.668z" />
-          </svg>
-        ),
+        icon: <SiNextdotjs className="h-3.5 w-3.5 shrink-0 text-[#161616]" />,
       },
       {
-        name: "OpenAI API",
-        icon: (
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-            <path
-              fill="#10A37F"
-              d="M22.28 9.82a8.82 8.82 0 0 0-.58-3.9 8.76 8.76 0 0 0-3.32-4.04 8.79 8.79 0 0 0-4.64-1.2h-.14a8.77 8.77 0 0 0-6.9 2.9A8.8 8.8 0 0 0 1.72 9.81a8.75 8.75 0 0 0 .58 3.9 8.79 8.79 0 0 0 3.32 4.04 8.79 8.79 0 0 0 4.64 1.2h.14a8.77 8.77 0 0 0 6.9-2.9 8.76 8.76 0 0 0 4.98-6.23Z"
-            />
-            <path fill="#FFF" d="M13.25 10.66v2.68l-3.23 1.86v-3.73l3.23-1.87v-2.68L9 9.87v4.26l4.25-2.45v-1.02Z" />
-          </svg>
-        ),
+        name: "Tailwind CSS",
+        icon: <SiTailwindcss className="h-3.5 w-3.5 shrink-0" style={{ color: "#06B6D4" }} />,
       },
-      { name: "AWS S3" },
-      { name: "Tailwind CSS" },
     ],
     result:
       "Achieved 96% retrieval accuracy and cut document search time down to sub-second queries for active analyst teams.",

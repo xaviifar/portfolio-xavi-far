@@ -14,23 +14,34 @@ export default function SectionHeader({
   className = "",
 }: SectionHeaderProps) {
   return (
-    <div className={`flex flex-col gap-3 mb-10 sm:mb-14 ${className}`}>
-      {(kicker || index) && (
-        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-zinc-400 font-medium">
-          {index && <span className="font-semibold text-zinc-500">{index} //</span>}
-          <span>{kicker}</span>
+    <div className={`flex flex-col mb-6 sm:mb-7 ${className}`}>
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-col gap-1">
+          {(kicker || index) && (
+            <span className="font-mono text-[10.5px] sm:text-[11px] uppercase tracking-[0.16em] text-[#161616]/45 font-semibold">
+              {index && <span className="text-[#161616]/75 mr-1.5">{index} //</span>}
+              {kicker}
+            </span>
+          )}
+          <h2 className="text-[20px] sm:text-[23px] font-semibold tracking-[-0.035em] text-[#161616]">
+            {title}
+          </h2>
         </div>
-      )}
-
-      <h2 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-zinc-900 leading-[1.05]">
-        {title}
-      </h2>
+        <span className="font-mono text-[12px] text-[#161616]/25 select-none hidden sm:inline-block">
+          +
+        </span>
+      </div>
 
       {subtitle && (
-        <p className="text-base sm:text-lg leading-relaxed text-zinc-500 max-w-xl">
+        <p className="mt-1.5 text-[13.5px] sm:text-[14px] leading-[1.6] text-[#161616]/65 max-w-[620px]">
           {subtitle}
         </p>
       )}
+
+      {/* Structural Hairline Divider with Cross Marker */}
+      <div className="relative mt-3 flex items-center">
+        <div className="h-[1px] w-full bg-[#161616]/10" />
+      </div>
     </div>
   );
 }
