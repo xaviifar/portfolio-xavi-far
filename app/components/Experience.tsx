@@ -149,9 +149,10 @@ export default function Experience() {
 
       <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3">
         <a
-          href="/cv.pdf"
+          href="/Xavi_Far_CV.pdf"
           target="_blank"
           rel="noopener noreferrer"
+          download="Xavi_Far_CV.pdf"
           className="group inline-flex items-center gap-2 rounded-md border border-[#161616] bg-[#161616] px-3.5 py-2 text-[12px] font-medium text-[#f3f3f1] transition-all duration-200 hover:bg-[#161616]/90 shadow-2xs"
         >
           <span>Deploy Resume</span>

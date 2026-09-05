@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 interface ActionLink {
@@ -5,12 +8,13 @@ interface ActionLink {
   href: string;
   icon: React.ReactNode;
   primary?: boolean;
+  isEmail?: boolean;
 }
 
 const actionLinks: ActionLink[] = [
   {
     name: "Resume",
-    href: "/Xavi_Far-CV.pdf",
+    href: "/Xavi_Far_CV.pdf",
     primary: true,
     icon: (
       <svg
@@ -35,6 +39,7 @@ const actionLinks: ActionLink[] = [
     name: "Send an email",
     href: "mailto:xavifarmartinez@gmail.com",
     primary: true,
+    isEmail: true,
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -84,6 +89,18 @@ const actionLinks: ActionLink[] = [
 ];
 
 export default function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // 1. Copy email address to clipboard
+    navigator.clipboard.writeText("xavifarmartinez@gmail.com").then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    });
+
+    // 2. Browser natively opens mailto in parallel
+  };
+
   return (
     <section id="me" className="flex flex-col pt-8 pb-8 sm:pt-12 sm:pb-10">
       <div className="flex flex-col">
@@ -122,23 +139,58 @@ export default function Hero() {
         {/* Action Grid */}
         <div className="mt-6">
           <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4 max-w-[620px]">
-            {actionLinks.map((link) => (
-              <li key={link.name} className="flex min-w-0">
-                <a
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-md border px-3 py-2 text-[12.5px] font-medium leading-4 whitespace-nowrap outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#161616]/50 ${
-                    link.primary
-                      ? "border-[#161616] bg-[#161616] text-[#f3f3f1] hover:bg-transparent hover:text-[#161616]"
-                      : "border-[#161616]/10 bg-[#161616]/5 text-[#161616] hover:bg-[#161616] hover:text-[#f3f3f1] hover:border-[#161616]"
-                  }`}
-                >
-                  {link.icon}
-                  <span className="truncate">{link.name}</span>
-                </a>
-              </li>
-            ))}
+            {actionLinks.map((link) => {
+              if (link.isEmail) {
+                return (
+                  <li key={link.name} className="flex min-w-0">
+                    <a
+                      href={link.href}
+                      onClick={handleEmailClick}
+                      className="inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-md border border-[#161616] bg-[#161616] px-3 py-2 text-[12.5px] font-medium leading-4 whitespace-nowrap outline-none transition-all duration-200 text-[#f3f3f1] hover:bg-transparent hover:text-[#161616] focus-visible:ring-2 focus-visible:ring-[#161616]/50 cursor-pointer"
+                    >
+                      {copied ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="size-3.5 shrink-0 text-emerald-500 animate-in fade-in zoom-in-75"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : (
+                        link.icon
+                      )}
+                      <span className="truncate">
+                        {copied ? "Email copied!" : link.name}
+                      </span>
+                    </a>
+                  </li>
+                );
+              }
+
+              return (
+                <li key={link.name} className="flex min-w-0">
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download={link.href.endsWith(".pdf") ? "Xavi_Far_CV.pdf" : undefined}
+                    className={`inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-md border px-3 py-2 text-[12.5px] font-medium leading-4 whitespace-nowrap outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#161616]/50 ${
+                      link.primary
+                        ? "border-[#161616] bg-[#161616] text-[#f3f3f1] hover:bg-transparent hover:text-[#161616]"
+                        : "border-[#161616]/10 bg-[#161616]/5 text-[#161616] hover:bg-[#161616] hover:text-[#f3f3f1] hover:border-[#161616]"
+                    }`}
+                  >
+                    {link.icon}
+                    <span className="truncate">{link.name}</span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

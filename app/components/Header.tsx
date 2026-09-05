@@ -6,15 +6,14 @@ import { usePathname } from "next/navigation";
 interface NavItem {
   label: string;
   href: string;
-  shortcut: string;
 }
 
 const navItems: NavItem[] = [
-  { label: "Me", href: "/", shortcut: "M" },
-  { label: "Experience", href: "/experience", shortcut: "E" },
-  { label: "Work", href: "/projects", shortcut: "W" },
-  { label: "Skills", href: "/#skills", shortcut: "S" },
-  { label: "Ask AI", href: "/chat", shortcut: "A" },
+  { label: "Me", href: "/"},
+  { label: "Experience", href: "/experience"},
+  { label: "Work", href: "/projects"},
+  { label: "Skills", href: "/#skills"},
+  { label: "Ask AI", href: "/chat"},
 ];
 
 export default function Header() {
@@ -47,9 +46,6 @@ export default function Header() {
                 }
               >
                 {item.label}
-              </span>
-              <span className="hidden sm:inline-block rounded bg-[#161616]/5 px-1.5 py-0.5 font-mono text-[9px] font-medium tracking-widest text-[#161616]/40 transition-colors group-hover:bg-[#161616]/10 group-hover:text-[#161616]/70">
-                {item.shortcut}
               </span>
             </Link>
           );
