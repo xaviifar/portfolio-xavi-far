@@ -14,34 +14,23 @@ export default function SectionHeader({
   className = "",
 }: SectionHeaderProps) {
   return (
-    <div className={`flex flex-col mb-5 sm:mb-6 ${className}`}>
-      <div className="flex items-center justify-between gap-3">
-        <div className="flex flex-col gap-0.5">
-          {(kicker || index) && (
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-[#161616]/40 font-medium">
-              {index && <span className="text-[#161616]/70 mr-1.5">{index} /</span>}
-              {kicker}
-            </span>
-          )}
-          <h2 className="text-[19px] sm:text-[22px] font-medium tracking-[-0.035em] text-[#161616]">
-            {title}
-          </h2>
+    <div className={`flex flex-col gap-3 mb-10 sm:mb-14 ${className}`}>
+      {(kicker || index) && (
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-zinc-400 font-medium">
+          {index && <span className="font-semibold text-zinc-500">{index} //</span>}
+          <span>{kicker}</span>
         </div>
-        <span className="font-mono text-[11px] text-[#161616]/25 select-none hidden sm:inline-block">
-          +
-        </span>
-      </div>
+      )}
+
+      <h2 className="text-3xl sm:text-5xl md:text-6xl font-semibold tracking-tighter text-zinc-900 leading-[1.05]">
+        {title}
+      </h2>
 
       {subtitle && (
-        <p className="mt-1 text-[13.5px] leading-[1.55] text-[#161616]/60 max-w-[560px]">
+        <p className="text-base sm:text-lg leading-relaxed text-zinc-500 max-w-xl">
           {subtitle}
         </p>
       )}
-
-      {/* Clean compact divider */}
-      <div className="relative mt-2.5 flex items-center">
-        <div className="h-[1px] w-full bg-[#161616]/10" />
-      </div>
     </div>
   );
 }
